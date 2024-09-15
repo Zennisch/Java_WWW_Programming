@@ -72,4 +72,13 @@
             <li>Note: Right click server -> Clean... is useful for updating changes</li>
         </ul>
     </div>
+    <div>
+        <h2>Import an Eclipse project into IntelliJ IDEA</h2>
+    </div>
+    <div>
+        <ul>
+            <li>-> IntelliJ main window -> Open -> Navigate to Eclipse project folder -> OK</li>
+            <li>-> Open or Import project -> Open as: Maven project -> OK</li>
+        </ul>
+    </div>
 </div>
