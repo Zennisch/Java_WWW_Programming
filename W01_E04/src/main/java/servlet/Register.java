@@ -10,7 +10,9 @@ import java.io.IOException;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.getWriter().println("Served at: " + req.getContextPath());
     }
