@@ -24,7 +24,9 @@ import java.nio.file.StandardCopyOption;
 )
 public class Upload extends HttpServlet {
 
-    private String uploadPath;
+	private static final long serialVersionUID = 1L;
+	
+	private String uploadPath;
 
     @Override
     public void init() throws ServletException {
