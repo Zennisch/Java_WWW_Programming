@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form</title>
+        <style>
+            .container {
+                margin: 0 auto;
+                padding: 10px;
+                width: 600px;
+                background-color: #88eeff;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .row {
+                display: flex;
+                width: 100%;
+            }
+            .text {
+                width: 25%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form class="container">
+            <div class="row">
+                <label for="firstName" class="text">First Name</label>
+                <input type="text" name="firstName" id="firstName" />
+            </div>
+            <div class="row">
+                <label for="lastName" class="text">Last Name</label>
+                <input type="text" name="lastName" id="lastName" />
+            </div>
+            <div class="row">
+                <span class="text">Date of Birth</span>
+                <select id="day">
+                    <option disabled selected hidden>Day:</option>
+                </select>
+                <span style="width: 10px"></span>
+                <select id="month">
+                    <option disabled selected hidden>Month:</option>
+                </select>
+                <span style="width: 10px"></span>
+                <select id="year">
+                    <option disabled selected hidden>Year:</option>
+                </select>
+            </div>
+            <div class="row">
+                <span class="text">Email</span>
+                <input type="text" name="email" />
+            </div>
+            <div class="row">
+                <span class="text">Mobile Number</span>
+                <input type="text" name="mobile" />
+            </div>
+            <div class="row">
+                <span class="text">Gender</span>
+                <label>Male</label>
+                <input type="radio" name="gender" value="Male">
+                <label>Female</label>
+                <input type="radio" name="gender" value="Female">
+            </div>
+            <div class="row" style="display: flex; align-items: center;">
+                <span class="text">Address</span>
+                <textarea rows="5"></textarea>
+            </div>
+            <div class="row">
+                <span class="text">City</span>
+                <input type="text" name="city" />
+            </div>
+            <div class="row">
+                <span class="text">Pin code</span>
+                <input type="text" name="pin" />
+            </div>
+            <div class="row">
+                <span class="text">State</span>
+                <input type="text" name="state" />
+            </div>
+            <div class="row">
+                <span class="text">Country</span>
+                <input type="text" name="country" />
+            </div>
+            <div class="row">
+                <span class="text">Hobbies</span>
+            </div>
+            <div class="row">
+                <span class="text">Qualification</span>
+            </div>
+            <div class="row">
+                <span class="text">Course applies for</span>
+                <input type="text" name="applies" />
+            </div>
+        </form>
+    </body>
+    <script>
+        let day = document.getElementById("day");
+        let month = document.getElementById("month");
+        let year = document.getElementById("year");
+
+        for (let i = 1; i <= 31; i++){
+            let option = document.createElement("option");
+            option.value = i;
+            option.innerHTML = i;
+            day.appendChild(option);
+        }
+
+        for (let i = 1; i <= 12; i++){
+            let option = document.createElement("option");
+            option.value = i
+            option.innerHTML = i
+            month.appendChild(option);
+        }
+
+        for (let i = 2024; i >= 1900; i--){
+            let option = document.createElement("option");
+            option.value = i
+            option.innerHTML = i
+            year.appendChild(option);
+        }
+    </script>
+
+
+</html>
