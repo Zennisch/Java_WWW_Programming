@@ -48,13 +48,13 @@
     </div>
     <div class="row">
         <span class="text">Date of Birth</span>
-        <select id="day">
+        <select id="day" name="day">
             <option disabled selected hidden>Day:</option>
         </select>
-        <select id="month">
+        <select id="month" name="month">
             <option disabled selected hidden>Month:</option>
         </select>
-        <select id="year">
+        <select id="year" name="year">
             <option disabled selected hidden>Year:</option>
         </select>
         <label for="day"></label>

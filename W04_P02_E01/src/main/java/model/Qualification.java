@@ -35,4 +35,13 @@ public class Qualification {
     public void setYearOfPassing(String yearOfPassing) {
         this.yearOfPassing = yearOfPassing;
     }
+
+    @Override
+    public String toString() {
+        return "Qualification{" +
+                "board='" + board + '\'' +
+                ", percentage='" + percentage + '\'' +
+                ", yearOfPassing='" + yearOfPassing + '\'' +
+                '}';
+    }
 }
