@@ -108,22 +108,22 @@
 
     for (let i = 1; i <= 31; i++) {
         let option = document.createElement("option");
-        option.value = i;
-        option.innerHTML = i;
+        option.value = i.toString();
+        option.innerHTML = i.toString();
         day.appendChild(option);
     }
 
     for (let i = 1; i <= 12; i++) {
         let option = document.createElement("option");
-        option.value = i
-        option.innerHTML = i
+        option.value = i.toString();
+        option.innerHTML = i.toString();
         month.appendChild(option);
     }
 
     for (let i = 2024; i >= 1900; i--) {
         let option = document.createElement("option");
-        option.value = i
-        option.innerHTML = i
+        option.value = i.toString();
+        option.innerHTML = i.toString();
         year.appendChild(option);
     }
 </script>
