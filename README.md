@@ -1,7 +1,14 @@
 <div>
-    <div>
-        <h2>Tutorial on creating a dynamic website project.</h2>
-    </div>
+    <h1>Table of Contents</h1>
+    <ul>
+        <li><a href="#tutorial-on-creating-a-dynamic-website-project">Tutorial on creating a dynamic website project.</a></li>
+        <li><a href="import-an-eclipse-project-into-intellij-idea">Import an Eclipse project into IntelliJ IDEA.</a></li>
+    </ul>
+</div>
+
+## Tutorial on creating a dynamic website project
+
+<div>
     <div>
         <h3>Current versions</h3>
         <ul>
@@ -72,9 +79,11 @@
             <li>Note: Right click server -> Clean... is useful for updating changes</li>
         </ul>
     </div>
-    <div>
-        <h2>Import an Eclipse project into IntelliJ IDEA</h2>
-    </div>
+</div>
+
+## Import an Eclipse project into IntelliJ IDEA
+    
+<div>
     <div>
         <ul>
             <li>-> IntelliJ main window -> Open -> Navigate to Eclipse project folder -> OK</li>
