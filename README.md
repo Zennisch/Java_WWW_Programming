@@ -2,7 +2,7 @@
     <h1>Table of Contents</h1>
     <ul>
         <li><a href="#tutorial-on-creating-a-dynamic-website-project">Tutorial on creating a dynamic website project.</a></li>
-        <li><a href="import-an-eclipse-project-into-intellij-idea">Import an Eclipse project into IntelliJ IDEA.</a></li>
+        <li><a href="#import-an-eclipse-project-into-intellij-idea">Import an Eclipse project into IntelliJ IDEA.</a></li>
     </ul>
 </div>
 
