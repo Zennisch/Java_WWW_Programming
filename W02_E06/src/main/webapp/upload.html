@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="width: 40%; margin: 0 auto; text-align: center; border: 5px solid #ccc; padding: 10px;">
+    <h1>Upload multi-files</h1>
+    <form action="Upload" method="post" enctype="multipart/form-data"
+          style="display: flex; flex-direction: column; justify-content: center; gap: 20px">
+        <div>
+            <label for="file">Files:</label>
+            <input type="file" name="files" id="file" multiple="multiple">
+        </div>
+        <div>
+            <input type="submit" value="Upload">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+</div>
+</body>
+</html>
