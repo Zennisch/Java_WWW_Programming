@@ -8,7 +8,7 @@
         .container {
             margin: 0 auto;
             padding: 10px;
-            width: 600px;
+            width: 50%;
             background-color: #88eeff;
             display: flex;
             flex-direction: column;
@@ -18,11 +18,12 @@
 
         .row {
             display: flex;
+            gap: 5px;
             width: 100%;
         }
 
         .text {
-            width: 25%;
+            width: 150px;
         }
     </style>
 </head>
@@ -39,20 +40,18 @@
     </div>
     <div class="row">
         <span class="text">Date of Birth</span>
-        <label for="day"></label>
         <select id="day">
             <option disabled selected hidden>Day:</option>
         </select>
-        <span style="width: 10px"></span>
-        <label for="month"></label>
         <select id="month">
             <option disabled selected hidden>Month:</option>
         </select>
-        <span style="width: 10px"></span>
-        <label for="year"></label>
         <select id="year">
             <option disabled selected hidden>Year:</option>
         </select>
+        <label for="day"></label>
+        <label for="month"></label>
+        <label for="year"></label>
     </div>
     <div class="row">
         <label for="email" class="text">Email</label>
@@ -78,7 +77,7 @@
         <input type="text" name="city" id="city"/>
     </div>
     <div class="row">
-        <label for="pin" class="text">Pin</label>
+        <label for="pin" class="text">Pin Code</label>
         <input type="text" name="pin" id="pin"/>
     </div>
     <div class="row">
@@ -91,13 +90,32 @@
     </div>
     <div class="row">
         <span class="text">Hobbies</span>
+        <label for="Drawing">Drawing</label>
+        <input type="checkbox" name="hobbies" value="Drawing" id="Drawing">
+        <label for="Singing">Singing</label>
+        <input type="checkbox" name="hobbies" value="Singing" id="Singing">
+        <label for="Dancing">Dancing</label>
+        <input type="checkbox" name="hobbies" value="Dancing" id="Dancing">
+        <label for="Sketching">Sketching</label>
+        <input type="checkbox" name="hobbies" value="Sketching" id="Sketching">
+        <label for="Others">Others</label>
+        <input type="checkbox" name="hobbies" value="Others" id="Others">
+        <label for="otherHobbies"></label>
+        <input type="text" name="otherHobbies" id="otherHobbies">
     </div>
     <div class="row">
         <span class="text">Qualification</span>
     </div>
     <div class="row">
-        <label for="applies" class="text">Applies for</label>
-        <input type="text" name="applies" id="applies"/>
+        <span class="text">Course applies for</span>
+        <label for="bca">BCA</label>
+        <input type="radio" name="applies" value="BCA" id="bca">
+        <label for="bcom">B.Com</label>
+        <input type="radio" name="applies" value="B.Com" id="bcom">
+        <label for="bsc">B.Sc</label>
+        <input type="radio" name="applies" value="B.Sc" id="bsc">
+        <label for="ba">B.A</label>
+        <input type="radio" name="applies" value="B.A" id="ba">
     </div>
 </form>
 </body>
