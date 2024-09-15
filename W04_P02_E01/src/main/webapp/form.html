@@ -100,9 +100,9 @@
         <label for="Sketching">Sketching</label>
         <input type="checkbox" name="hobbies" value="Sketching" id="Sketching">
         <label for="Others">Others</label>
-        <input type="checkbox" name="hobbies" value="Others" id="Others">
+        <input type="checkbox" id="Others" onclick="let input = document.getElementById('otherHobbies'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+        <input id="otherHobbies" name="hobbies" disabled="disabled" />
         <label for="otherHobbies"></label>
-        <input type="text" name="otherHobbies" id="otherHobbies">
     </div>
     <div class="row" style="display: flex; align-items: center;">
         <span class="text">Qualification</span>
