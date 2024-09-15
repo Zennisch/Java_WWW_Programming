@@ -10,7 +10,9 @@ import java.io.IOException;
 @WebServlet("/Message")
 public class Message extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         var message = req.getAttribute("Message");
         if (message != null) {

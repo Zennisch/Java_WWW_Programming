@@ -20,7 +20,9 @@ import java.sql.SQLException;
 @MultipartConfig(location = "D:\\09_ETC\\Temp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class UploadDatabase extends HttpServlet {
 
-    private static final int BUFFER_SIZE = 4096;
+	private static final long serialVersionUID = 1L;
+
+	private static final int BUFFER_SIZE = 4096;
 
     private static final String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=WWW_W02_E07;encrypt=true;trustServerCertificate=true;";
     private static final String dbUser = "Developer";
