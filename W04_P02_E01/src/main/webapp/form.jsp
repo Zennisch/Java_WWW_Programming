@@ -1,0 +1,200 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Ray
+  Date: 2024-09-15
+  Time: 11:08 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Form</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            padding: 10px;
+            width: 50%;
+            background-color: #88eeff;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .row {
+            display: flex;
+            gap: 5px;
+            width: 100%;
+        }
+
+        .text {
+            width: 125px;
+        }
+
+    </style>
+</head>
+
+<body>
+<form class="container" action="Register" method="get">
+    <div class="row">
+        <label for="firstName" class="text">First Name</label>
+        <input type="text" name="firstName" id="firstName"/>
+    </div>
+    <div class="row">
+        <label for="lastName" class="text">Last Name</label>
+        <input type="text" name="lastName" id="lastName"/>
+    </div>
+    <div class="row">
+        <span class="text">Date of Birth</span>
+        <select id="day">
+            <option disabled selected hidden>Day:</option>
+        </select>
+        <select id="month">
+            <option disabled selected hidden>Month:</option>
+        </select>
+        <select id="year">
+            <option disabled selected hidden>Year:</option>
+        </select>
+        <label for="day"></label>
+        <label for="month"></label>
+        <label for="year"></label>
+    </div>
+    <div class="row">
+        <label for="email" class="text">Email</label>
+        <input type="email" name="email" id="email"/>
+    </div>
+    <div class="row">
+        <label for="mobile" class="text">Mobile</label>
+        <input type="text" name="mobile" id="mobile"/>
+    </div>
+    <div class="row">
+        <span class="text">Gender</span>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="Male" id="male">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" value="Female" id="female">
+    </div>
+    <div class="row" style="display: flex; align-items: center;">
+        <label for="address" class="text">Address</label>
+        <textarea rows="5" name="address" id="address"></textarea>
+    </div>
+    <div class="row">
+        <label for="city" class="text">City</label>
+        <input type="text" name="city" id="city"/>
+    </div>
+    <div class="row">
+        <label for="pin" class="text">Pin Code</label>
+        <input type="text" name="pin" id="pin"/>
+    </div>
+    <div class="row">
+        <label for="state" class="text">State</label>
+        <input type="text" name="state" id="state"/>
+    </div>
+    <div class="row">
+        <label for="country" class="text">Country</label>
+        <input type="text" name="country" id="country"/>
+    </div>
+    <div class="row">
+        <span class="text">Hobbies</span>
+        <label for="Drawing">Drawing</label>
+        <input type="checkbox" name="hobbies" value="Drawing" id="Drawing">
+        <label for="Singing">Singing</label>
+        <input type="checkbox" name="hobbies" value="Singing" id="Singing">
+        <label for="Dancing">Dancing</label>
+        <input type="checkbox" name="hobbies" value="Dancing" id="Dancing">
+        <label for="Sketching">Sketching</label>
+        <input type="checkbox" name="hobbies" value="Sketching" id="Sketching">
+        <label for="Others">Others</label>
+        <input type="checkbox" id="Others" onclick="let input = document.getElementById('otherHobbies'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+        <input id="otherHobbies" name="hobbies" disabled="disabled" />
+        <label for="otherHobbies"></label>
+    </div>
+    <div class="row" style="display: flex; align-items: center;">
+        <span class="text">Qualification</span>
+        <table>
+            <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Examination</th>
+                <th>Board</th>
+                <th>Percentage</th>
+                <th>Year of Passing</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Class X</td>
+                <td><input type="text" name="board1" id="board1"><label for="board1"></label></td>
+                <td><input type="text" name="percentage1" id="percentage1"><label for="percentage1"></label></td>
+                <td><input type="text" name="year1" id="year1"><label for="year1"></label></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Class XII</td>
+                <td><input type="text" name="board2" id="board2"><label for="board2"></label></td>
+                <td><input type="text" name="percentage2" id="percentage2"><label for="percentage2"></label></td>
+                <td><input type="text" name="year2" id="year2"><label for="year2"></label></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Graduation</td>
+                <td><input type="text" name="board3" id="board3"><label for="board3"></label></td>
+                <td><input type="text" name="percentage3" id="percentage3"><label for="percentage3"></label></td>
+                <td><input type="text" name="year3" id="year3"><label for="year3"></label></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Masters</td>
+                <td><input type="text" name="board4" id="board4"><label for="board4"></label></td>
+                <td><input type="text" name="percentage4" id="percentage4"><label for="percentage4"></label></td>
+                <td><input type="text" name="year4" id="year4"><label for="year4"></label></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <span class="text">Course applies for</span>
+        <label for="bca">BCA</label>
+        <input type="radio" name="applies" value="BCA" id="bca">
+        <label for="bcom">B.Com</label>
+        <input type="radio" name="applies" value="B.Com" id="bcom">
+        <label for="bsc">B.Sc</label>
+        <input type="radio" name="applies" value="B.Sc" id="bsc">
+        <label for="ba">B.A</label>
+        <input type="radio" name="applies" value="B.A" id="ba">
+    </div>
+    <div class="row">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+<script>
+    let day = document.getElementById("day");
+    let month = document.getElementById("month");
+    let year = document.getElementById("year");
+
+    for (let i = 1; i <= 31; i++) {
+        let option = document.createElement("option");
+        option.value = i.toString();
+        option.innerHTML = i.toString();
+        day.appendChild(option);
+    }
+
+    for (let i = 1; i <= 12; i++) {
+        let option = document.createElement("option");
+        option.value = i.toString();
+        option.innerHTML = i.toString();
+        month.appendChild(option);
+    }
+
+    for (let i = 2024; i >= 1900; i--) {
+        let option = document.createElement("option");
+        option.value = i.toString();
+        option.innerHTML = i.toString();
+        year.appendChild(option);
+    }
+</script>
+</html>
