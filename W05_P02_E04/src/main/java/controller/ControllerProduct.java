@@ -17,7 +17,9 @@ import java.sql.SQLException;
 @WebServlet("/Product")
 public class ControllerProduct extends HttpServlet {
 
-    @Resource(name = "jdbc/Shopping")
+	private static final long serialVersionUID = 1L;
+
+	@Resource(name = "jdbc/Shopping")
     private DataSource dataSource;
 
     private DAO_Product daoProduct;
