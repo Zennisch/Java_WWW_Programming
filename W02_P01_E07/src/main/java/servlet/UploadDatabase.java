@@ -24,7 +24,7 @@ public class UploadDatabase extends HttpServlet {
 
 	private static final int BUFFER_SIZE = 4096;
 
-    private static final String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=WWW_W02_E07;encrypt=true;trustServerCertificate=true;";
+    private static final String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=WWW_W02_P01_E07;encrypt=true;trustServerCertificate=true;";
     private static final String dbUser = "Developer";
     private static final String dbPass = "123";
 
