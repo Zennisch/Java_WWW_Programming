@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUH Bookstore</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="bg-gray-200 py-4 px-6">
+    <div class="container mx-auto flex items-center">
+        <h1 class="text-3xl font-bold">IUH BOOKSTORE</h1>
+        <nav class="ml-auto space-x-6">
+            <a href="#" class="hover:underline">HOME</a>
+            <a href="#" class="hover:underline">EXAMPLES</a>
+            <a href="#" class="hover:underline">SERVICES</a>
+            <a href="#" class="hover:underline">PRODUCTS</a>
+            <a href="#" class="hover:underline">CONTACT</a>
+        </nav>
+    </div>
+</header>
+<main class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap -mx-4">
+        <aside class="w-full md:w-1/4 px-4">
+            <div class="bg-gray-200 p-4 mb-4">
+                <h3 class="text-xl font-bold mb-2">ABOUT US</h3>
+                <p class="text-gray-700">About us information will be here..... <a href="#"
+                                                                                   class="text-blue-500 hover:underline">Read
+                    More</a></p>
+            </div>
+            <div class="bg-gray-200 p-4">
+                <h3 class="text-xl font-bold mb-2">SEARCH SITE</h3>
+                <input type="text"
+                       class="w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="Tìm kiếm sản phẩm...">
+            </div>
+        </aside>
+        <div class="w-full md:w-3/4 px-4">
+            <h2 class="text-2xl font-bold mb-4">YOUR SHOPPING CART</h2>
+            <table class="w-full border-collapse table-auto">
+                <thead>
+                <tr class="bg-gray-200 text-gray-700">
+                    <th class="px-4 py-2">Product ID</th>
+                    <th class="px-4 py-2">Product name</th>
+                    <th class="px-4 py-2">Price</th>
+                    <th class="px-4 py-2">Qty</th>
+                    <th class="px-4 py-2">Total</th>
+                    <th class="px-4 py-2">Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="border-b border-gray-300">
+                    <td class="px-4 py-2">pro01</td>
+                    <td class="px-4 py-2">Số tay viết văn - Tác giả: Tô Hoài</td>
+                    <td class="px-4 py-2">99000</td>
+                    <td class="px-4 py-2">1</td>
+                    <td class="px-4 py-2">99000</td>
+                    <td class="px-4 py-2">
+                        <button class="text-red-500 hover:underline">Remove</button>
+                    </td>
+                </tr>
+                <tr class="border-b border-gray-300">
+                    <td class="px-4 py-2">pro02</td>
+                    <td class="px-4 py-2">Nhật ký ma cà rồng 03 - CƠN THỊNH NỘ</td>
+                    <td class="px-4 py-2">48000</td>
+                    <td class="px-4 py-2">1</td>
+                    <td class=" px-4 py-2">48000</td>
+                    <td class="px-4 py-2">
+                        <button class="text-red-500 hover:underline">Remove</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="flex justify-between mt-4">
+                <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">UPDATE CART
+                </button>
+                <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">CHECKOUT
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bg-gray-800 py-4 px-6 text-center text-white">
+    <p>&copy; 2023 IUH Bookstore. All rights reserved.</p>
+</footer>
+</body>
+</html>
