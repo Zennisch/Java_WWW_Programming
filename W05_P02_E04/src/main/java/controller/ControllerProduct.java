@@ -7,14 +7,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Product;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
-@WebServlet("/Product")
+@WebServlet("/Products")
 public class ControllerProduct extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -46,7 +48,12 @@ public class ControllerProduct extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("Successfully connected to database: " + daoProduct.getAllProducts());
+        List<Product> products = daoProduct.getAllProducts();
+        System.out.println(products);
+        resp.setContentType("text/html");
+        req.setCharacterEncoding("UTF-8");
+        req.setAttribute("products", products);
+        req.getRequestDispatcher("/products.jsp").forward(req, resp);
     }
 
     @Override
