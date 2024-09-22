@@ -13,6 +13,7 @@ import model.ItemCart;
 
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,8 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/cart", "/cart*"})
 public class ControllerCart extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+	@Serial
+    private static final long serialVersionUID = 1L;
 
 	@Resource(name = "jdbc/Shopping")
     private DataSource dataSource;
@@ -58,12 +60,12 @@ public class ControllerCart extends HttpServlet {
         req.getRequestDispatcher("/cart.jsp").forward(req, resp);
     }
 
-    private void doGetBuy(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void doGetBuy(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
-        List<ItemCart> cart = null;
+        List<ItemCart> cart;
 
         if (session.getAttribute("cart") == null) {
-            cart = new ArrayList<ItemCart>();
+            cart = new ArrayList<>();
         } else {
             cart = (List<ItemCart>) session.getAttribute("cart");
         }
@@ -88,7 +90,7 @@ public class ControllerCart extends HttpServlet {
         return -1;
     }
 
-    private void doGetRemove(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void doGetRemove(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         List<ItemCart> cart = (List<ItemCart>) session.getAttribute("cart");
         int index = isProductExist(Integer.parseInt(req.getParameter("id")), cart);

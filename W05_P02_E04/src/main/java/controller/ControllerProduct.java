@@ -11,6 +11,7 @@ import model.Product;
 
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.io.Serial;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +20,8 @@ import java.util.List;
 @WebServlet("/Products")
 public class ControllerProduct extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+	@Serial
+    private static final long serialVersionUID = 1L;
 
 	@Resource(name = "jdbc/Shopping")
     private DataSource dataSource;
