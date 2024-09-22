@@ -26,7 +26,7 @@
                 <th class="px-4 py-2 border">Name</th>
                 <th class="px-4 py-2 border">Image</th>
                 <th class="px-4 py-2 border">Price</th>
-                <th class="px-4 py-2 border">Actions</th>
+                <th class="px-4 py-2 border">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -41,7 +41,8 @@
                     </td>
                     <td class="px-4 py-2 border text-center">${product.price}</td>
                     <td class="px-4 py-2 border text-center">
-                        <a href="${pageContext.request.contextPath}/products/${product.id}" class="text-teal-600">Buy</a>
+                        <a href="${pageContext.request.contextPath}/cart?action=buy&id=${product.id}"
+                           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buy</a>
                     </td>
                 </tr>
             </c:forEach>

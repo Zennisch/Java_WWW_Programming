@@ -49,7 +49,6 @@ public class ControllerProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> products = daoProduct.getAllProducts();
-        System.out.println(products);
         resp.setContentType("text/html");
         req.setCharacterEncoding("UTF-8");
         req.setAttribute("products", products);
