@@ -16,10 +16,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 @WebServlet(urlPatterns = {"/cart", "/cart*"})
 public class ControllerCart extends HttpServlet {
 
-    @Resource(name = "jdbc/Shopping")
+	private static final long serialVersionUID = 1L;
+
+	@Resource(name = "jdbc/Shopping")
     private DataSource dataSource;
 
     private DAO_Product daoProduct;

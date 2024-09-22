@@ -5,6 +5,7 @@
   Time: 3:38 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@page import="model.Product"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html lang="en">
@@ -30,7 +31,7 @@
             </tr>
             </thead>
             <tbody>
-            <jsp:useBean id="products" scope="request" type="java.util.List"/>
+            <jsp:useBean id="products" scope="request" type="java.util.List<model.Product>"/>
             <c:forEach var="product" items="${products}">
                 <tr>
                     <td class="px-4 py-2 border text-center">${product.id}</td>
