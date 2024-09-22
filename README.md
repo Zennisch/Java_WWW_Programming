@@ -37,7 +37,7 @@
                     <li>-> Server/Application server/Configure</li>
                     <li>-> Plus sign -> Choose Tomcat library folder -> OK/OK</li>
                     <li>-> Deployment/Deploy at the server startup</li>
-                    <li>-> Plus sign -> Artifact -> Choose war</li>
+                    <li>-> Plus sign -> Artifact -> Choose :war exploded</li>
                     <li>-> Application context -> Change to '/' -> OK</li>
                     <li>-> Run created configuration</li>
                 </ul>
