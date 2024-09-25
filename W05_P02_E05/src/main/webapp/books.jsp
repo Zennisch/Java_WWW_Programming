@@ -44,19 +44,12 @@
         </div>
 
         <div class="bg-white p-6 rounded shadow mt-6">
-            <h2 class="text-xl font-bold mb-4">Shopping cart (4)</h2>
+            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+               href="${pageContext.request.contextPath}/cart">View Cart</a>
         </div>
     </aside>
 
     <section class="col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<%--        <div class="bg-white p-6 rounded shadow">--%>
-<%--            <img src="book1.jpg" alt="Book Title" class="w-full h-auto mb-4">--%>
-<%--            <h3 class="text-lg font-semibold">Số tay viết văn - Tác giả: Tô Hoài</h3>--%>
-<%--            <p class="text-gray-600">Price: 99000</p>--%>
-<%--            <p class="text-gray-600">Quantity: 10</p>--%>
-<%--            <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Add to--%>
-<%--                cart</a>--%>
-<%--        </div>--%>
         <jsp:useBean id="books" scope="request" type="java.util.List<model.Book>"/>
         <c:forEach var="book" items="${books}">
             <div class="bg-white p-6 rounded shadow">
