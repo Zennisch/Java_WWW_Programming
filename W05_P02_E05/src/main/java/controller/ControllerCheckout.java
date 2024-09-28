@@ -1,6 +1,11 @@
 package controller;
 
-import dao.DAO_Book;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
 import dao.DAO_OrderDetail;
 import dao.DAO_Orders;
 import jakarta.annotation.Resource;
@@ -10,21 +15,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import model.Book;
 import model.ItemCart;
 import model.OrderDetail;
 import model.Orders;
 
-import javax.sql.DataSource;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+@SuppressWarnings("unchecked")
 @WebServlet("/Checkout")
 public class ControllerCheckout extends HttpServlet {
 
-    @Resource(name = "jdbc/Book")
+	private static final long serialVersionUID = 1L;
+
+	@Resource(name = "jdbc/Book")
     private DataSource dataSource;
 
     private DAO_Orders daoOrder;

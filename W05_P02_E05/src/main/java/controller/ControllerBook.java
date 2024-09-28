@@ -18,7 +18,9 @@ import java.sql.SQLException;
 @WebServlet("/Books")
 public class ControllerBook extends HttpServlet {
 
-    @Resource(name = "jdbc/Book")
+	private static final long serialVersionUID = 1L;
+
+	@Resource(name = "jdbc/Book")
     private DataSource dataSource;
 
     private DAO_Book daoBook;

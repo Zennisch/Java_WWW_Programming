@@ -1,14 +1,13 @@
 package dao;
 
-import dao_interface.I_DAO_OrderDetail;
-import model.Book;
-import model.OrderDetail;
-import model.Orders;
-
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import dao_interface.I_DAO_OrderDetail;
+import model.OrderDetail;
 
 public class DAO_OrderDetail implements I_DAO_OrderDetail {
 

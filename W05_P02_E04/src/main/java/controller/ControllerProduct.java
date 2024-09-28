@@ -1,5 +1,13 @@
 package controller;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
 import dao.DAO_Product;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -9,18 +17,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Product;
 
-import javax.sql.DataSource;
-import java.io.IOException;
-import java.io.Serial;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 @WebServlet("/Products")
 public class ControllerProduct extends HttpServlet {
 
-	@Serial
     private static final long serialVersionUID = 1L;
 
 	@Resource(name = "jdbc/Shopping")
