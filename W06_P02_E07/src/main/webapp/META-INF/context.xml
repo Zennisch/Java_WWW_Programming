@@ -1,0 +1,12 @@
+<Context>
+    <Resource name="jdbc/QLGiangVien"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="100"
+              maxIdle="30"
+              maxWaitMillis="10000"
+              username="Developer"
+              password="123"
+              driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              url="jdbc:sqlserver://localhost:1433;databaseName=WWW_W06_P02_E07;encrypt=true;trustServerCertificate=true;"/>
+</Context>
