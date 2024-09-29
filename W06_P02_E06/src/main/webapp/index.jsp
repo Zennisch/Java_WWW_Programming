@@ -13,6 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý Giảng viên và Đề tài</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const message = '${sessionScope.message}';
+        if (message) {
+            alert(message);
+            <% session.removeAttribute("message"); %>
+        }
+    </script>
 </head>
 <body class="bg-gray-100">
 <div class="max-w-5xl mx-auto my-10">
