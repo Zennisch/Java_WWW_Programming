@@ -1,5 +1,6 @@
 package controller;
 
+import dao.DAO_DanhMuc;
 import dao.DAO_TinTuc;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -7,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.DanhMuc;
 import model.TinTuc;
 
 import javax.sql.DataSource;
@@ -20,6 +22,7 @@ public class ControllerTinTuc extends HttpServlet {
     private DataSource dataSource;
 
     private DAO_TinTuc daoTinTuc;
+    private DAO_DanhMuc daoDanhMuc;
 
     public ControllerTinTuc() {
         super();
@@ -29,6 +32,7 @@ public class ControllerTinTuc extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         daoTinTuc = new DAO_TinTuc(dataSource);
+        daoDanhMuc = new DAO_DanhMuc(dataSource);
     }
 
     @Override
@@ -41,6 +45,9 @@ public class ControllerTinTuc extends HttpServlet {
                 break;
             case "detail":
                 doGetDetail(req, resp);
+                break;
+            case "category":
+                doGetCategory(req, resp);
                 break;
             default:
                 doGetHome(req, resp);
@@ -63,6 +70,11 @@ public class ControllerTinTuc extends HttpServlet {
         TinTuc tinTuc = daoTinTuc.getTinTucById(maTinTuc);
         req.setAttribute("tinTuc", tinTuc);
         req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+    }
+
+    private void doGetCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<DanhMuc> listDanhMuc = daoDanhMuc.getAllDanhMuc();
+        req.setAttribute("listDanhMuc", listDanhMuc);
     }
 
     @Override

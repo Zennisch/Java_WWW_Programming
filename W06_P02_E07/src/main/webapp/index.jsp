@@ -34,7 +34,9 @@
                 sách tin tức</a>
         </li>
         <li>
-            <a href="#" class="px-4 py-2 bg-white text-blue-600 rounded hover:bg-blue-100 transition duration-300">Thêm
+            <a href="javascript:void(0)"
+               onclick="loadForm('views/ThemTinTuc.jsp')"
+               class="px-4 py-2 bg-white text-blue-600 rounded hover:bg-blue-100 transition duration-300">Thêm
                 tin tức</a>
         </li>
         <li>
@@ -44,7 +46,7 @@
     </ul>
 </nav>
 
-<main class="bg-white p-10 rounded-lg shadow-lg flex-grow flex items-center justify-center overflow-auto">
+<main class="bg-white p-10 rounded-lg shadow-lg flex-grow flex items-center justify-center overflow-auto" id="main-container">
     <div class="w-11/12 h-72 bg-white bg-opacity-50 rounded-lg shadow-md">
         <c:set var="listTinTuc" value="${requestScope.listTinTuc}" scope="request"/>
         <c:choose>
@@ -64,6 +66,14 @@
 <footer class="bg-blue-600 text-white py-4">
     <p class="text-center">Họ tên sinh viên - Mã sinh viên - Lớp</p>
 </footer>
-
+<script>
+    function loadForm(page) {
+        const contentArea = document.getElementById('main-container');
+        contentArea.innerHTML = '';
+        fetch(page)
+            .then(response => response.text())
+            .then(data => contentArea.innerHTML = data);
+    }
+</script>
 </body>
 </html>
