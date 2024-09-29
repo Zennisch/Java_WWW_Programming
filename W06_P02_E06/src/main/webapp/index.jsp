@@ -35,8 +35,8 @@
             đề tài</a>
     </nav>
 
-
     <section id="content-area" class="bg-white p-10 rounded-lg shadow-lg h-80 flex items-center justify-center">
+        <c:set var="giangViens" value="${requestScope.giangViens}" scope="request"/>
         <c:choose>
             <c:when test="${not empty giangViens}">
                 <jsp:include page="views/giangViens.jsp"/>
