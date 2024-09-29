@@ -40,9 +40,6 @@ public class ControllerGiangVien extends HttpServlet {
             case "list":
                 doGetList(req, resp);
                 break;
-            case "add":
-                doGetAdd(req, resp);
-                break;
             default:
                 doGetHome(req, resp);
                 break;
@@ -59,11 +56,25 @@ public class ControllerGiangVien extends HttpServlet {
         req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
     }
 
-    private void doGetAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void doPostAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String maGV = req.getParameter("maGiangVien");
+        String tenGV = req.getParameter("tenGiangVien");
+        String linhVucNghienCuu = req.getParameter("linhVucNghienCuu");
+        String soDienThoai = req.getParameter("soDienThoai");
+
+        GiangVien giangVien = new GiangVien(maGV, tenGV, linhVucNghienCuu, soDienThoai);
+        boolean isAdded = daoGiangVien.add(giangVien);
+        if (isAdded) {
+            req.setAttribute("message", "Thêm giảng viên thành công");
+            resp.sendRedirect(req.getContextPath() + "/GiangVien?action=list");
+        } else {
+            req.setAttribute("message", "Thêm giảng viên thất bại");
+            req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
+        doPostAdd(req, resp);
     }
 }

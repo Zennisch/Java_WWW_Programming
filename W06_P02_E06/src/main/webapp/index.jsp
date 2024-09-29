@@ -27,7 +27,8 @@
         <a href="${pageContext.request.contextPath}/DeTai?action=list"
            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">Danh
             sách đề tài</a>
-        <a href="#them-giang-vien"
+        <a href="javascript:void(0)"
+           onclick="loadAddGiangVienForm('${pageContext.request.contextPath}/views/themGiangVien.jsp')"
            class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300">Thêm
             giảng viên</a>
         <a href="#them-de-tai"
@@ -51,6 +52,14 @@
         </c:choose>
     </section>
 </div>
-
+<script>
+    function loadAddGiangVienForm(page) {
+        const contentArea = document.getElementById('content-area');
+        contentArea.innerHTML = '';
+        fetch(page)
+            .then(response => response.text())
+            .then(data => contentArea.innerHTML = data);
+    }
+</script>
 </body>
 </html>
