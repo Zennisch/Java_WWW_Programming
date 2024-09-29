@@ -71,14 +71,14 @@ public class DAO_TinTuc implements I_DAO_TinTuc {
     }
 
     @Override
-    public TinTuc getTinTucById(int id) {
+    public TinTuc getTinTucById(String id) {
         try {
             String sql = "SELECT * FROM TinTuc WHERE MATT = ?";
 
             Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery(sql);
+            statement.setString(1, id);
+            ResultSet resultSet = statement.executeQuery();
 
             TinTuc tinTuc = null;
             if (resultSet.next()) {
@@ -150,13 +150,13 @@ public class DAO_TinTuc implements I_DAO_TinTuc {
     }
 
     @Override
-    public boolean deleteTinTuc(int id) {
+    public boolean deleteTinTuc(String id) {
         try {
             String sql = "DELETE FROM TinTuc WHERE MATT = ?";
 
             Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setString(1, id);
 
             int result = statement.executeUpdate();
             return result > 0;

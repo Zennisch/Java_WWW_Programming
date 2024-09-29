@@ -1,5 +1,5 @@
 <Context>
-    <Resource name="jdbc/QLGiangVien"
+    <Resource name="jdbc/QLTinTuc"
               auth="Container"
               type="javax.sql.DataSource"
               maxTotal="100"

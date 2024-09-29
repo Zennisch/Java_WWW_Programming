@@ -7,9 +7,9 @@ import java.util.List;
 public interface I_DAO_TinTuc {
 
     List<TinTuc> getAllTinTuc();
-    TinTuc getTinTucById(int id);
+    TinTuc getTinTucById(String id);
     boolean addTinTuc(TinTuc tinTuc);
     boolean updateTinTuc(TinTuc tinTuc);
-    boolean deleteTinTuc(int id);
+    boolean deleteTinTuc(String id);
 
 }
