@@ -77,7 +77,7 @@
 </main>
 
 <footer class="bg-blue-600 text-white py-4">
-    <p class="text-center">Họ tên sinh viên - Mã sinh viên - Lớp</p>
+    <p class="text-center">Nguyễn Thiên Phú - 20073871 - DHKTPM16A</p>
 </footer>
 <script>
     function loadForm(page) {
