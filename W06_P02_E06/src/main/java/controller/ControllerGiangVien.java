@@ -42,7 +42,6 @@ public class ControllerGiangVien extends HttpServlet {
                 break;
             case "list":
                 List<GiangVien> giangViens = daoGiangVien.getAll();
-                HttpSession session = req.getSession();
                 req.setAttribute("giangViens", giangViens);
                 req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
         }

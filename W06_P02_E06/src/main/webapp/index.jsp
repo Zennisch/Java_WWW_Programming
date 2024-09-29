@@ -35,11 +35,11 @@
             đề tài</a>
     </nav>
 
+
     <section id="content-area" class="bg-white p-10 rounded-lg shadow-lg h-80 flex items-center justify-center">
         <c:choose>
             <c:when test="${not empty giangViens}">
-<%--                <jsp:include page="view-giang-vien.jsp"/>--%>
-                <c:out value="${giangViens}"/>
+                <jsp:include page="views/giangViens.jsp"/>
             </c:when>
             <c:otherwise>
                 <p class="text-gray-500 text-lg">Vui lòng chọn một mục từ thanh điều hướng.</p>
