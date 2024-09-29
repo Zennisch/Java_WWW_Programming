@@ -45,12 +45,12 @@
 
 <main class="flex-grow flex items-center justify-center">
     <div class="w-11/12 h-72 bg-white bg-opacity-50 rounded-lg shadow-md">
-        <jsp:include page="views/content.jsp" />
+
     </div>
 </main>
 
 <footer class="bg-blue-600 text-white py-4">
-    <p class="text-center">Họ tên sinh viên - Mã sinh viên - Lớp</p>
+    <p class="text-center">Nguyễn Thiên Phú  - 20073871 - DHKTPM16A</p>
 </footer>
 
 </body>
