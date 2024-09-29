@@ -11,7 +11,9 @@ import java.io.IOException;
 @WebServlet("/")
 public class ControllerHome extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher(req.getContextPath() + "/index.jsp").forward(req, resp);
     }

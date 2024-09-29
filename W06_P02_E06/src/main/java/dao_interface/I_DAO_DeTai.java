@@ -1,9 +1,8 @@
 package dao_interface;
 
-import model.DeTai;
-import model.GiangVien;
-
 import java.util.List;
+
+import model.DeTai;
 
 public interface I_DAO_DeTai {
 

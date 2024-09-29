@@ -16,7 +16,9 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/GiangVien", "/GiangVien*"})
 public class ControllerGiangVien extends HttpServlet {
 
-    @Resource(name = "jdbc/QLGiangVien")
+	private static final long serialVersionUID = 1L;
+
+	@Resource(name = "jdbc/QLGiangVien")
     private DataSource dataSource;
 
     private DAO_GiangVien daoGiangVien;
