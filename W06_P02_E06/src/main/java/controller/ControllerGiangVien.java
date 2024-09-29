@@ -7,13 +7,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.GiangVien;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/GiangVien")
+@WebServlet(urlPatterns = {"/GiangVien", "/GiangVien*"})
 public class ControllerGiangVien extends HttpServlet {
 
     @Resource(name = "jdbc/QLGiangVien")
@@ -33,9 +34,18 @@ public class ControllerGiangVien extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<GiangVien> giangViens = daoGiangVien.getAll();
-        resp.setContentType("text/html");
-        resp.getWriter().println(giangViens);
+        String action = req.getParameter("action") != null ? req.getParameter("action") : "home";
+
+        switch (action) {
+            case "home":
+                resp.sendRedirect(req.getContextPath() + "/");
+                break;
+            case "list":
+                List<GiangVien> giangViens = daoGiangVien.getAll();
+                HttpSession session = req.getSession();
+                req.setAttribute("giangViens", giangViens);
+                req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+        }
     }
 
     @Override

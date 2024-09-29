@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@
     </header>
 
     <nav class="flex justify-center space-x-8 mb-10">
-        <a href="#danh-sach-giang-vien"
+        <a href="${pageContext.request.contextPath}/GiangVien?action=list"
            class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Danh
             sách giảng viên</a>
         <a href="#danh-sach-de-tai"
@@ -35,7 +36,15 @@
     </nav>
 
     <section id="content-area" class="bg-white p-10 rounded-lg shadow-lg h-80 flex items-center justify-center">
-        <p class="text-gray-500 text-lg">Vui lòng chọn một mục từ thanh điều hướng.</p>
+        <c:choose>
+            <c:when test="${not empty giangViens}">
+<%--                <jsp:include page="view-giang-vien.jsp"/>--%>
+                <c:out value="${giangViens}"/>
+            </c:when>
+            <c:otherwise>
+                <p class="text-gray-500 text-lg">Vui lòng chọn một mục từ thanh điều hướng.</p>
+            </c:otherwise>
+        </c:choose>
     </section>
 </div>
 
