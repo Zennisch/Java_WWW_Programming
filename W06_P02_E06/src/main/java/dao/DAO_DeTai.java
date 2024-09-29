@@ -33,7 +33,7 @@ public class DAO_DeTai implements I_DAO_DeTai {
                 deTai.setMaDT(resultSet.getString("MADT"));
                 deTai.setTenDT(resultSet.getString("TENDT"));
                 deTai.setNamDangKy(resultSet.getInt("NAMDANGKY"));
-                deTai.setMoTaDeTai(resultSet.getString("MOTA"));
+                deTai.setMoTaDeTai(resultSet.getString("MOTADETAI"));
                 deTai.setGiangVien(getByID(resultSet.getString("MAGV")));
 
                 deTais.add(deTai);
@@ -66,8 +66,12 @@ public class DAO_DeTai implements I_DAO_DeTai {
         try {
             String sql = "SELECT * FROM GIANGVIEN WHERE MAGV = ?";
             Connection connection = dataSource.getConnection();
-            ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
+
             GiangVien giangVien = new GiangVien();
             giangVien.setMaGV(resultSet.getString("MAGV"));
             giangVien.setTenGV(resultSet.getString("TENGV"));

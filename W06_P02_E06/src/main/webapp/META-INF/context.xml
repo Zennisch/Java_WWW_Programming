@@ -1,5 +1,5 @@
 <Context>
-    <Resource name="jdbc/Book"
+    <Resource name="jdbc/QLGiangVien"
               auth="Container"
               type="javax.sql.DataSource"
               maxTotal="100"
@@ -8,5 +8,5 @@
               username="Developer"
               password="123"
               driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-              url="jdbc:sqlserver://localhost:1433;databaseName=WWW_W05_P02_E05;encrypt=true;trustServerCertificate=true;"/>
+              url="jdbc:sqlserver://localhost:1433;databaseName=WWW_W06_P02_E06;encrypt=true;trustServerCertificate=true;"/>
 </Context>
