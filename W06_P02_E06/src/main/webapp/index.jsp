@@ -28,11 +28,11 @@
            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">Danh
             sách đề tài</a>
         <a href="javascript:void(0)"
-           onclick="loadAddGiangVienForm('${pageContext.request.contextPath}/views/themGiangVien.jsp')"
+           onclick="loadForm('${pageContext.request.contextPath}/views/themGiangVien.jsp')"
            class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300">Thêm
             giảng viên</a>
         <a href="javascript:void(0)"
-              onclick="loadAddGiangVienForm('${pageContext.request.contextPath}/views/themDeTai.jsp')"
+              onclick="loadForm('${pageContext.request.contextPath}/views/themDeTai.jsp')"
            class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300">Thêm
             đề tài</a>
     </nav>
@@ -54,7 +54,7 @@
     </section>
 </div>
 <script>
-    function loadAddGiangVienForm(page) {
+    function loadForm(page) {
         const contentArea = document.getElementById('content-area');
         contentArea.innerHTML = '';
         fetch(page)
