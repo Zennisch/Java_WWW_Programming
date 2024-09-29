@@ -35,7 +35,7 @@
             đề tài</a>
     </nav>
 
-    <section id="content-area" class="bg-white p-10 rounded-lg shadow-lg h-auto min-h-[500px] flex items-center justify-center overflow-auto">
+    <section id="content-area" class="bg-white p-10 rounded-lg shadow-lg h-auto min-h-[300px] flex items-center justify-center overflow-auto">
         <c:set var="giangViens" value="${requestScope.giangViens}" scope="request"/>
         <c:set var="deTais" value="${requestScope.deTais}" scope="request"/>
         <c:choose>
