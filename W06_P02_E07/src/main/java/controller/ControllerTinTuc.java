@@ -18,7 +18,9 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/TinTuc", "/TinTuc*"})
 public class ControllerTinTuc extends HttpServlet {
 
-    @Resource(name = "jdbc/QLTinTuc")
+	private static final long serialVersionUID = 1L;
+
+	@Resource(name = "jdbc/QLTinTuc")
     private DataSource dataSource;
 
     private DAO_TinTuc daoTinTuc;
