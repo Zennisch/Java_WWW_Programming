@@ -24,7 +24,7 @@
         <a href="${pageContext.request.contextPath}/GiangVien?action=list"
            class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Danh
             sách giảng viên</a>
-        <a href="#danh-sach-de-tai"
+        <a href="${pageContext.request.contextPath}/DeTai?action=list"
            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">Danh
             sách đề tài</a>
         <a href="#them-giang-vien"
@@ -35,11 +35,15 @@
             đề tài</a>
     </nav>
 
-    <section id="content-area" class="bg-white p-10 rounded-lg shadow-lg h-80 flex items-center justify-center">
+    <section id="content-area" class="bg-white p-10 rounded-lg shadow-lg h-auto min-h-[500px] flex items-center justify-center overflow-auto">
         <c:set var="giangViens" value="${requestScope.giangViens}" scope="request"/>
+        <c:set var="deTais" value="${requestScope.deTais}" scope="request"/>
         <c:choose>
             <c:when test="${not empty giangViens}">
                 <jsp:include page="views/giangViens.jsp"/>
+            </c:when>
+            <c:when test="${not empty deTais}">
+                <jsp:include page="views/deTais.jsp"/>
             </c:when>
             <c:otherwise>
                 <p class="text-gray-500 text-lg">Vui lòng chọn một mục từ thanh điều hướng.</p>

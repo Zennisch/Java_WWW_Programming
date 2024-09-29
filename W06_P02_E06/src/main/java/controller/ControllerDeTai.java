@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/DeTai")
+@WebServlet(urlPatterns = {"/DeTai", "/DeTai*"})
 public class ControllerDeTai extends HttpServlet {
 
     @Resource(name = "jdbc/QLGiangVien")
@@ -33,9 +33,32 @@ public class ControllerDeTai extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action") != null ? req.getParameter("action") : "home";
+
+        switch (action) {
+            case "list":
+                doGetList(req, resp);
+                break;
+            case "add":
+                doGetAdd(req, resp);
+                break;
+            default:
+                doGetHome(req, resp);
+                break;
+        }
+    }
+
+    private void doGetHome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect(req.getContextPath() + "/");
+    }
+
+    private void doGetList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<DeTai> deTais = daoDeTai.getAll();
-        resp.setContentType("text/html");
-        resp.getWriter().println(deTais);
+        req.setAttribute("deTais", deTais);
+        req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+    }
+
+    private void doGetAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     }
 
     @Override

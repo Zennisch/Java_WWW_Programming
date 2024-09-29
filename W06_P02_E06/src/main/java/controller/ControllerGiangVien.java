@@ -37,14 +37,29 @@ public class ControllerGiangVien extends HttpServlet {
         String action = req.getParameter("action") != null ? req.getParameter("action") : "home";
 
         switch (action) {
-            case "home":
-                resp.sendRedirect(req.getContextPath() + "/");
-                break;
             case "list":
-                List<GiangVien> giangViens = daoGiangVien.getAll();
-                req.setAttribute("giangViens", giangViens);
-                req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+                doGetList(req, resp);
+                break;
+            case "add":
+                doGetAdd(req, resp);
+                break;
+            default:
+                doGetHome(req, resp);
+                break;
         }
+    }
+
+    private void doGetHome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect(req.getContextPath() + "/");
+    }
+
+    private void doGetList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<GiangVien> giangViens = daoGiangVien.getAll();
+        req.setAttribute("giangViens", giangViens);
+        req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+    }
+
+    private void doGetAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     }
 
     @Override
