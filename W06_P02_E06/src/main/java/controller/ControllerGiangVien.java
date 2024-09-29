@@ -40,6 +40,10 @@ public class ControllerGiangVien extends HttpServlet {
             case "list":
                 doGetList(req, resp);
                 break;
+            case "resource":
+                List<GiangVien> giangViens = daoGiangVien.getAll();
+                req.setAttribute("giangViens", giangViens);
+                break;
             default:
                 doGetHome(req, resp);
                 break;

@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%
+    request.getRequestDispatcher("/GiangVien?action=resource").include(request, response);
+%>
 <div class="w-full max-w-lg">
     <h2 class="text-2xl font-bold mb-6">Thêm Đề Tài Mới</h2>
     <form action="DeTai" method="POST" class="bg-gray-100 p-6 rounded-lg shadow-md">
@@ -39,8 +42,9 @@
             <label for="giangVien" class="block text-gray-700">Giảng Viên Hướng Dẫn:</label>
             <select id="giangVien" name="giangVien" required class="border border-gray-300 rounded-lg px-4 py-2 w-full">
                 <option value="">Chọn Giảng Viên</option>
+                <c:set var="giangViens" value="${requestScope.giangViens}" scope="request"/>
                 <c:forEach var="giangVien" items="${giangViens}">
-                    <option value="${giangVien.maGiangVien}">${giangVien.tenGV}</option>
+                    <option value="${giangVien.maGV}">${giangVien.tenGV}</option>
                 </c:forEach>
             </select>
         </div>
