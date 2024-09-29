@@ -7,6 +7,6 @@ import java.util.List;
 public interface I_DAO_DanhMuc {
 
     List<DanhMuc> getAllDanhMuc();
-    DanhMuc getDanhMucById(int id);
+    DanhMuc getDanhMucById(String id);
 
 }

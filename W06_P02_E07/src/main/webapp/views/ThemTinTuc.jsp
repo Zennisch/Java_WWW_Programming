@@ -13,7 +13,7 @@
 <div class="container mx-auto p-10">
     <h1 class="text-3xl font-bold mb-5 text-center">Tạo Tin tức Mới</h1>
 
-    <form action="yourActionURL" method="POST" class="bg-white p-6 rounded-md shadow-md">
+    <form id="tinTucForm" action="TinTuc" method="POST" class="bg-white p-6 rounded-md shadow-md" onsubmit="return validateForm()">
         <div class="mb-4">
             <label for="maTinTuc" class="block text-gray-700 text-sm font-bold mb-2">Mã Tin tức:</label>
             <input type="text" id="maTinTuc" name="maTinTuc" required
@@ -48,8 +48,29 @@
         </div>
 
         <div class="flex justify-center">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">Tạo Tin tức
-            </button>
+            <input type="submit"
+                   class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                   value="Tạo Tin tức">
         </div>
     </form>
 </div>
+
+<script>
+    function validateForm() {
+        const noiDungTT = document.getElementById("noiDungTT").value;
+        const lienKet = document.getElementById("lienKet").value;
+
+        if (noiDungTT.length > 1000) {
+            alert("Nội dung không được quá 1000 ký tự.");
+            return false;
+        }
+
+        const regex = /^http:\/\//;
+        if (!regex.test(lienKet)) {
+            alert("Liên kết phải bắt đầu bằng 'http://'.");
+            return false;
+        }
+
+        return true;
+    }
+</script>

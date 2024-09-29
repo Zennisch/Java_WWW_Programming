@@ -49,6 +49,12 @@ public class ControllerTinTuc extends HttpServlet {
             case "category":
                 doGetCategory(req, resp);
                 break;
+            case "control":
+                doGetControll(req, resp);
+                break;
+            case "remove":
+                doGetRemove(req, resp);
+                break;
             default:
                 doGetHome(req, resp);
                 break;
@@ -77,8 +83,42 @@ public class ControllerTinTuc extends HttpServlet {
         req.setAttribute("listDanhMuc", listDanhMuc);
     }
 
+    private void doGetControll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<TinTuc> listTinTucControl = daoTinTuc.getAllTinTuc();
+        req.setAttribute("listTinTucControl", listTinTucControl);
+        req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+    }
+
+    private void doGetRemove(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String maTinTuc = req.getParameter("id");
+        boolean isRemoved = daoTinTuc.deleteTinTuc(maTinTuc);
+        if (isRemoved) {
+            req.getSession().setAttribute("message", "Xóa Tin tức thành công");
+            resp.sendRedirect(req.getContextPath() + "/TinTuc?action=control");
+        } else {
+            req.getSession().setAttribute("message", "Xóa Tin tức thất bại");
+            resp.sendRedirect(req.getContextPath() + "/TinTuc?action=control");
+        }
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String maTinTuc = req.getParameter("maTinTuc");
+        String tieuDe = req.getParameter("tieuDe");
+        String noiDungTT = req.getParameter("noiDungTT");
+        String lienKet = req.getParameter("lienKet");
+        String maDanhMuc = req.getParameter("danhMuc");
+
+        DanhMuc danhMuc = daoDanhMuc.getDanhMucById(maDanhMuc);
+
+        TinTuc tinTuc = new TinTuc(maTinTuc, tieuDe, noiDungTT, lienKet, danhMuc);
+        boolean isAdded = daoTinTuc.addTinTuc(tinTuc);
+        if (isAdded) {
+            req.getSession().setAttribute("message", "Thêm Tin tức thành công");
+            resp.sendRedirect(req.getContextPath() + "/TinTuc?action=list");
+        } else {
+            req.getSession().setAttribute("message", "Thêm Tin tức thất bại");
+            resp.sendRedirect(req.getContextPath() + "/");
+        }
     }
 }

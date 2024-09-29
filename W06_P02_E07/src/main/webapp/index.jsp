@@ -13,6 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IUH News</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const message = '${sessionScope.message}';
+        if (message) {
+            alert(message);
+            <% session.removeAttribute("message"); %>
+        }
+    </script>
 </head>
 
 <body class="flex flex-col min-h-screen bg-gradient-to-r from-green-400 to-blue-500">
@@ -29,7 +36,7 @@
 <nav class="bg-blue-600">
     <ul class="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-6 py-4">
         <li>
-            <a href="/TinTuc?action=list"
+            <a href="${pageContext.request.contextPath}/TinTuc?action=list"
                class="px-4 py-2 bg-white text-blue-600 rounded hover:bg-blue-100 transition duration-300">Danh
                 sách tin tức</a>
         </li>
@@ -40,7 +47,8 @@
                 tin tức</a>
         </li>
         <li>
-            <a href="#" class="px-4 py-2 bg-white text-blue-600 rounded hover:bg-blue-100 transition duration-300">Chức
+            <a href="${pageContext.request.contextPath}/TinTuc?action=control"
+               class="px-4 py-2 bg-white text-blue-600 rounded hover:bg-blue-100 transition duration-300">Chức
                 năng quản lý</a>
         </li>
     </ul>
@@ -49,12 +57,17 @@
 <main class="bg-white p-10 rounded-lg shadow-lg flex-grow flex items-center justify-center overflow-auto" id="main-container">
     <div class="w-11/12 h-72 bg-white bg-opacity-50 rounded-lg shadow-md">
         <c:set var="listTinTuc" value="${requestScope.listTinTuc}" scope="request"/>
+        <c:set var="tinTuc" value="${requestScope.tinTuc}" scope="request"/>
+        <c:set var="listTinTucControl" value="${requestScope.listTinTucControl}" scope="request"/>
         <c:choose>
             <c:when test="${not empty listTinTuc}">
                 <jsp:include page="views/DanhSachTinTuc.jsp"/>
             </c:when>
             <c:when test="${not empty tinTuc}">
                 <jsp:include page="views/ChiTietTinTuc.jsp"/>
+            </c:when>
+            <c:when test="${not empty listTinTucControl}">
+                <jsp:include page="views/QuanLyTinTuc.jsp"/>
             </c:when>
             <c:otherwise>
                 <p class="text-gray-500 text-lg text-center">Vui lòng chọn một mục từ thanh điều hướng.</p>

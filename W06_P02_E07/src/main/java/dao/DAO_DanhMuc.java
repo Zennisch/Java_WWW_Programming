@@ -4,10 +4,7 @@ import dao_interface.I_DAO_DanhMuc;
 import model.DanhMuc;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,13 +47,14 @@ public class DAO_DanhMuc implements I_DAO_DanhMuc {
     }
 
     @Override
-    public DanhMuc getDanhMucById(int id) {
+    public DanhMuc getDanhMucById(String id) {
         try {
-            String sql = "SELECT * FROM DanhMuc WHERE MADM = " + id;
+            String sql = "SELECT * FROM DanhMuc WHERE MADM = ?";
 
             Connection connection = dataSource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            ResultSet resultSet = statement.executeQuery();
 
             DanhMuc danhMuc = null;
             if (resultSet.next()) {
