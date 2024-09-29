@@ -69,11 +69,11 @@ public class ControllerGiangVien extends HttpServlet {
         GiangVien giangVien = new GiangVien(maGV, tenGV, linhVucNghienCuu, soDienThoai);
         boolean isAdded = daoGiangVien.add(giangVien);
         if (isAdded) {
-            req.setAttribute("message", "Thêm giảng viên thành công");
+            req.getSession().setAttribute("message", "Thêm giảng viên thành công");
             resp.sendRedirect(req.getContextPath() + "/GiangVien?action=list");
         } else {
-            req.setAttribute("message", "Thêm giảng viên thất bại");
-            req.getRequestDispatcher(req.getContextPath() + "/").forward(req, resp);
+            req.getSession().setAttribute("message", "Thêm giảng viên thất bại");
+            resp.sendRedirect(req.getContextPath() + "/");
         }
     }
 

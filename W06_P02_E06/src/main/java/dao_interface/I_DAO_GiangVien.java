@@ -8,4 +8,5 @@ public interface I_DAO_GiangVien {
 
     List<GiangVien> getAll();
     boolean add(GiangVien giangVien);
+    GiangVien getByID(String id);
 }

@@ -29,12 +29,25 @@ public class DAO_DeTai implements I_DAO_DeTai {
             ResultSet resultSet = connection.createStatement().executeQuery(sql);
 
             while (resultSet.next()) {
+
+                String sql2 = "SELECT * FROM GIANGVIEN WHERE MAGV = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql2);
+                preparedStatement.setString(1, resultSet.getString("MAGV"));
+                ResultSet resultSet2 = preparedStatement.executeQuery();
+                resultSet2.next();
+
+                GiangVien giangVien = new GiangVien();
+                giangVien.setMaGV(resultSet2.getString("MAGV"));
+                giangVien.setTenGV(resultSet2.getString("TENGV"));
+                giangVien.setLinhVucNghienCuu(resultSet2.getString("LINHVUCNGHIENCUU"));
+                giangVien.setSoDienThoai(resultSet2.getString("SODIENTHOAI"));
+
                 DeTai deTai = new DeTai();
                 deTai.setMaDT(resultSet.getString("MADT"));
                 deTai.setTenDT(resultSet.getString("TENDT"));
                 deTai.setNamDangKy(resultSet.getInt("NAMDANGKY"));
                 deTai.setMoTaDeTai(resultSet.getString("MOTADETAI"));
-                deTai.setGiangVien(getByID(resultSet.getString("MAGV")));
+                deTai.setGiangVien(giangVien);
 
                 deTais.add(deTai);
             }
@@ -46,9 +59,9 @@ public class DAO_DeTai implements I_DAO_DeTai {
     }
 
     @Override
-    public void add(DeTai deTai) {
+    public boolean add(DeTai deTai) {
         try {
-            String sql = "INSERT INTO DETAI(MADT, TENDT, NAMDANGKY, MOTA, MAGV) VALUES(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO DETAI(MADT, TENDT, NAMDANGKY, MOTADETAI, MAGV) VALUES(?, ?, ?, ?, ?)";
             Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, deTai.getMaDT());
@@ -56,30 +69,12 @@ public class DAO_DeTai implements I_DAO_DeTai {
             preparedStatement.setInt(3, deTai.getNamDangKy());
             preparedStatement.setString(4, deTai.getMoTaDeTai());
             preparedStatement.setString(5, deTai.getGiangVien().getMaGV());
+
+            int result = preparedStatement.executeUpdate();
+            return result > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    @Override
-    public GiangVien getByID(String id) {
-        try {
-            String sql = "SELECT * FROM GIANGVIEN WHERE MAGV = ?";
-            Connection connection = dataSource.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, id);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-
-            GiangVien giangVien = new GiangVien();
-            giangVien.setMaGV(resultSet.getString("MAGV"));
-            giangVien.setTenGV(resultSet.getString("TENGV"));
-            giangVien.setLinhVucNghienCuu(resultSet.getString("LINHVUCNGHIENCUU"));
-            giangVien.setSoDienThoai(resultSet.getString("SODIENTHOAI"));
-            return giangVien;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

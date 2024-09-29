@@ -60,4 +60,27 @@ public class DAO_GiangVien implements I_DAO_GiangVien {
         }
     }
 
+    @Override
+    public GiangVien getByID(String id) {
+        try {
+            String sql = "SELECT * FROM GIANGVIEN WHERE MAGV = ?";
+            Connection connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                GiangVien giangVien = new GiangVien();
+                giangVien.setMaGV(resultSet.getString("MAGV"));
+                giangVien.setTenGV(resultSet.getString("TENGV"));
+                giangVien.setLinhVucNghienCuu(resultSet.getString("LINHVUCNGHIENCUU"));
+                giangVien.setSoDienThoai(resultSet.getString("SODIENTHOAI"));
+                return giangVien;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
 }

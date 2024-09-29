@@ -8,7 +8,6 @@ import java.util.List;
 public interface I_DAO_DeTai {
 
     List<DeTai> getAll();
-    void add(DeTai deTai);
-    GiangVien getByID(String id);
+    boolean add(DeTai deTai);
 
 }
