@@ -37,7 +37,8 @@
     <div class="max-w-4xl w-full bg-white p-10 rounded shadow-lg text-gray-800 overflow-auto text-center">
         <%
             String contentPage = request.getParameter("contentPage");
-            String filePath = request.getContextPath() + contentPage;
+            String filePath = application.getRealPath("/") + contentPage;
+            System.out.println(filePath);
             File file = new File(filePath);
             if (!file.exists()) {
                 contentPage = "views/defaultContent.jsp";

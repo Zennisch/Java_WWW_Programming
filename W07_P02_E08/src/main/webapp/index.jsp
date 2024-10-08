@@ -12,7 +12,7 @@
 </head>
 <body>
     <jsp:include page="template.jsp">
-        <jsp:param name="contentPage" value="indexContent.jsp" />
+        <jsp:param name="contentPage" value="views/indexContent.jsp" />
     </jsp:include>
 </body>
 </html>
