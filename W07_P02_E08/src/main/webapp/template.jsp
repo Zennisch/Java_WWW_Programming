@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Ray
+  Date: 2024-10-09
+  Time: 2:54 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,9 +33,9 @@
 </nav>
 
 <!-- Content -->
-<main class="flex-1 flex items-center justify-center">
-    <div class="max-w-4xl w-full bg-white p-10 rounded shadow-lg text-gray-800 overflow-auto">
-
+<main class="flex-1 grid place-items-center">
+    <div class="max-w-4xl w-full bg-white p-10 rounded shadow-lg text-gray-800 overflow-auto text-center">
+        Chọn chức năng ở Navbar để bắt đầu
     </div>
 </main>
 
