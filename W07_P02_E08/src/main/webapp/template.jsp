@@ -35,7 +35,12 @@
 <!-- Content -->
 <main class="flex-1 grid place-items-center">
     <div class="max-w-4xl w-full bg-white p-10 rounded shadow-lg text-gray-800 overflow-auto text-center">
-        Chọn chức năng ở Navbar để bắt đầu
+        <%
+            Object contentPage = request.getParameter("contentPage");
+            String contentPageString = contentPage != null ? contentPage.toString() : "defaultContent.jsp";
+        %>
+
+        <jsp:include page="<%= contentPageString %>" />
     </div>
 </main>
 
