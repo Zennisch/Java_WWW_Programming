@@ -45,7 +45,7 @@
             }
         %>
 
-        <jsp:include page="<%= contentPage %>" />
+        <jsp:include page="<%= contentPage %>"/>
     </div>
 </main>
 

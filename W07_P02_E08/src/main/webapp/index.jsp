@@ -11,8 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    <jsp:include page="template.jsp">
-        <jsp:param name="contentPage" value="views/indexContent.jsp" />
-    </jsp:include>
+<jsp:include page="template.jsp">
+    <jsp:param name="contentPage" value="views/indexContent.jsp"/>
+</jsp:include>
 </body>
 </html>
