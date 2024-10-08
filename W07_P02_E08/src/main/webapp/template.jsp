@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.io.File" %><%--
   Created by IntelliJ IDEA.
   User: Ray
   Date: 2024-10-09
@@ -36,11 +36,15 @@
 <main class="flex-1 grid place-items-center">
     <div class="max-w-4xl w-full bg-white p-10 rounded shadow-lg text-gray-800 overflow-auto text-center">
         <%
-            Object contentPage = request.getParameter("contentPage");
-            String contentPageString = contentPage != null ? contentPage.toString() : "defaultContent.jsp";
+            String contentPage = request.getParameter("contentPage");
+            String filePath = request.getContextPath() + contentPage;
+            File file = new File(filePath);
+            if (!file.exists()) {
+                contentPage = "views/defaultContent.jsp";
+            }
         %>
 
-        <jsp:include page="<%= contentPageString %>" />
+        <jsp:include page="<%= contentPage %>" />
     </div>
 </main>
 
