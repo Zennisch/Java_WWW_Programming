@@ -31,7 +31,8 @@
        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Danh sách sản phẩm</a>
     <a href="${pageContext.request.contextPath}/DienThoai?action=create"
        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Thêm mới sản phẩm</a>
-    <a href="#" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Chức năng quản lý</a>
+    <a href="${pageContext.request.contextPath}/DienThoai?action=manage"
+       class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Chức năng quản lý</a>
 </nav>
 
 <!-- Content -->

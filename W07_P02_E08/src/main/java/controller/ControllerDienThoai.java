@@ -56,6 +56,9 @@ public class ControllerDienThoai extends HttpServlet {
             case "create":
                 doGetCreate(req, resp);
                 break;
+            case "manage":
+                doGetManage(req, resp);
+                break;
             case "update":
                 break;
             case "delete":
@@ -74,6 +77,12 @@ public class ControllerDienThoai extends HttpServlet {
         List<NhaCungCap> listNhaCungCap = iDaoNhaCungCap.getAll();
         req.setAttribute("listNhaCungCap", listNhaCungCap);
         req.getRequestDispatcher("views/create.jsp").forward(req, resp);
+    }
+
+    private void doGetManage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<DienThoai> listDienThoai = iDaoDienThoai.getAll();
+        req.setAttribute("listDienThoai", listDienThoai);
+        req.getRequestDispatcher("views/manage.jsp").forward(req, resp);
     }
 
     private void doGetList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
