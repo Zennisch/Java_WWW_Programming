@@ -55,8 +55,13 @@ public class ControllerDienThoai extends HttpServlet {
             case "delete":
                 break;
             default:
+                doGetHome(req, resp);
                 break;
         }
+    }
+
+    private void doGetHome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("views/index.jsp").forward(req, resp);
     }
 
     private void doGetList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
