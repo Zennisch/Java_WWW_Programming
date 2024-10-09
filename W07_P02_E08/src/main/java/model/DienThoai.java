@@ -29,6 +29,13 @@ public class DienThoai {
     public DienThoai() {
     }
 
+    public DienThoai(String tenDienThoai, int namSanXuat, String cauHinh, NhaCungCap nhaCungCap) {
+        this.tenDienThoai = tenDienThoai;
+        this.namSanXuat = namSanXuat;
+        this.cauHinh = cauHinh;
+        this.nhaCungCap = nhaCungCap;
+    }
+
     public DienThoai(int maDienThoai, String tenDienThoai, int namSanXuat, String cauHinh, NhaCungCap nhaCungCap) {
         this.maDienThoai = maDienThoai;
         this.tenDienThoai = tenDienThoai;
