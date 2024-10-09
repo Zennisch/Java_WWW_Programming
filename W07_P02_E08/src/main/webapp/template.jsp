@@ -41,7 +41,6 @@
         <%
             String contentPage = request.getParameter("contentPage");
             String filePath = application.getRealPath("/") + contentPage;
-            System.out.println(filePath);
             File file = new File(filePath);
             if (!file.exists()) {
                 contentPage = "views/defaultContent.jsp";
@@ -54,7 +53,7 @@
 
 <!-- Footer -->
 <footer class="bg-white py-4 text-center shadow-lg">
-    <p class="text-gray-600">Họ tên sinh viên - Mã sinh viên - Lớp</p>
+    <p class="text-gray-600">Nguyễn Thiên Phú - 20073871 - DHKTPM16A</p>
 </footer>
 
 </body>
