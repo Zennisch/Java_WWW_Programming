@@ -33,9 +33,15 @@
             </td>
             <td class="py-2">
                 <a href="${pageContext.request.contextPath}/DienThoai?action=delete&id=${dienThoai.maDienThoai}"
+                   onclick="return confirmDelete()"
                    class="text-red-500 hover:underline">Delete</a>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa sản phẩm không?");
+    }
+</script>

@@ -63,6 +63,7 @@ public class ControllerDienThoai extends HttpServlet {
                 doGetUpdate(req, resp);
                 break;
             case "delete":
+                doGetDelete(req, resp);
                 break;
             default:
                 doGetHome(req, resp);
@@ -93,6 +94,14 @@ public class ControllerDienThoai extends HttpServlet {
         req.setAttribute("dienThoai", dienThoai);
         req.setAttribute("listNhaCungCap", listNhaCungCap);
         req.getRequestDispatcher("views/update.jsp").forward(req, resp);
+    }
+
+    private void doGetDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        boolean status = iDaoDienThoai.delete(id);
+        if (status) {
+            resp.sendRedirect("DienThoai?action=list");
+        }
     }
 
     private void doGetList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
