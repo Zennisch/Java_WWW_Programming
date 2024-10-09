@@ -60,6 +60,7 @@ public class ControllerDienThoai extends HttpServlet {
                 doGetManage(req, resp);
                 break;
             case "update":
+                doGetUpdate(req, resp);
                 break;
             case "delete":
                 break;
@@ -85,6 +86,15 @@ public class ControllerDienThoai extends HttpServlet {
         req.getRequestDispatcher("views/manage.jsp").forward(req, resp);
     }
 
+    private void doGetUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        DienThoai dienThoai = iDaoDienThoai.getByID(id);
+        List<NhaCungCap> listNhaCungCap = iDaoNhaCungCap.getAll();
+        req.setAttribute("dienThoai", dienThoai);
+        req.setAttribute("listNhaCungCap", listNhaCungCap);
+        req.getRequestDispatcher("views/update.jsp").forward(req, resp);
+    }
+
     private void doGetList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<DienThoai> listDienThoai = iDaoDienThoai.getAll();
         req.setAttribute("listDienThoai", listDienThoai);
@@ -99,8 +109,10 @@ public class ControllerDienThoai extends HttpServlet {
                 doPostCreate(req, resp);
                 break;
             case "update":
+                doPostUpdate(req, resp);
                 break;
             default:
+                doGetHome(req, resp);
                 break;
         }
     }
@@ -115,6 +127,22 @@ public class ControllerDienThoai extends HttpServlet {
         DienThoai dienThoai = new DienThoai(tenDienThoai, namSanXuat, cauHinh, nhaCungCap);
 
         boolean status = iDaoDienThoai.add(dienThoai);
+        if (status) {
+            resp.sendRedirect("DienThoai?action=list");
+        }
+    }
+
+    private void doPostUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int maDienThoai = Integer.parseInt(req.getParameter("maDienThoai"));
+        String tenDienThoai = req.getParameter("tenDienThoai");
+        int namSanXuat = Integer.parseInt(req.getParameter("namSanXuat"));
+        String cauHinh = req.getParameter("cauHinh");
+        int maNhaCungCap = Integer.parseInt(req.getParameter("nhaCungCap"));
+        NhaCungCap nhaCungCap = iDaoNhaCungCap.getByID(maNhaCungCap);
+
+        DienThoai dienThoai = new DienThoai(maDienThoai, tenDienThoai, namSanXuat, cauHinh, nhaCungCap);
+
+        boolean status = iDaoDienThoai.update(dienThoai);
         if (status) {
             resp.sendRedirect("DienThoai?action=list");
         }

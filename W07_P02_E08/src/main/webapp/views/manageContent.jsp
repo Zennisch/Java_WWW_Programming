@@ -27,10 +27,13 @@
             <td class="py-2">${dienThoai.tenDienThoai}</td>
             <td class="py-2">${dienThoai.nhaCungCap.tenNhaCungCap}</td>
             <td class="py-2">
-                <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                <a href="${pageContext.request.contextPath}/DienThoai?action=update&id=${dienThoai.maDienThoai}"
+                   class="text-blue-500 hover:underline">Edit
+                </a>
             </td>
             <td class="py-2">
-                <a href="#" class="text-red-500 hover:underline">Delete</a>
+                <a href="${pageContext.request.contextPath}/DienThoai?action=delete&id=${dienThoai.maDienThoai}"
+                   class="text-red-500 hover:underline">Delete</a>
             </td>
         </tr>
     </c:forEach>
