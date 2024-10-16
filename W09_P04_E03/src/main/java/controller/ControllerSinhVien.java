@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.SinhVien;
@@ -22,6 +24,24 @@ public class ControllerSinhVien {
         list.add(new SinhVien(4, "Tran", "Anh", 9));
         list.add(new SinhVien(5, "Nguyen", "Bao", 7));
         list.add(new SinhVien(6, "Nguyen", "Nhan", 10));
+    }
+
+    @RequestMapping("/FormSinhVien")
+    public ModelAndView formStudent() {
+        return new ModelAndView("formSinhVien", "command", new SinhVien());
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public ModelAndView saveStudent(@ModelAttribute("sinhVien") SinhVien sinhVien) {
+        int id = list.size() + 1;
+        String firstName = sinhVien.getFirstName();
+        String lastName = sinhVien.getLastName();
+        float averageMark = sinhVien.getAverageMark();
+
+        sinhVien = new SinhVien(id, firstName, lastName, averageMark);
+        list.add(sinhVien);
+
+        return new ModelAndView("viewSinhVien", "list", list);
     }
 
     @RequestMapping("/ViewSinhVien")
