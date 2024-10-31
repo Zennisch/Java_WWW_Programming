@@ -15,7 +15,7 @@
 <div class="flex flex-col justify-center items-center mx-auto w-[30%] h-full gap-[50px]">
     <jsp:include page="template-header.jsp"/>
     <%--@elvariable id="customer" type="model.Customer"--%>
-    <form:form action="${pageContext.request.contextPath}/process-customer" method="post" modelAttribute="customer">
+    <form:form action="${pageContext.request.contextPath}/confirm-customer" method="post" modelAttribute="customer">
         <table class="table table-auto table-fixed border-collapse border-spacing-4 w-full">
             <tbody>
             <tr>

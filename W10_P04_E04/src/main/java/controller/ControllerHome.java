@@ -27,9 +27,9 @@ public class ControllerHome {
         return "form-student";
     }
 
-    @RequestMapping("/process-student")
+    @RequestMapping("/confirm-student")
     public String requestProcessStudent(@ModelAttribute("student") Student student) {
-        return "process-student";
+        return "confirm-student";
     }
 
     @RequestMapping("/form-customer")
@@ -38,9 +38,9 @@ public class ControllerHome {
         return "form-customer";
     }
 
-    @RequestMapping("/process-customer")
+    @RequestMapping("/confirm-customer")
     public String requestProcessCustomer(@ModelAttribute("customer") Customer customer) {
-        return "process-customer";
+        return "confirm-customer";
     }
 
 }
