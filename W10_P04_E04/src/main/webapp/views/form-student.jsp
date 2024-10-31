@@ -75,6 +75,7 @@
             </tbody>
         </table>
     </form:form>
+    <jsp:include page="template-footer.jsp"/>
 </div>
 </body>
 </html>

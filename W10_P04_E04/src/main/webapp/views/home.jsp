@@ -25,6 +25,7 @@
             Form Customer
         </a>
     </nav>
+    <jsp:include page="template-footer.jsp" />
 </div>
 </body>
 </html>

@@ -16,9 +16,7 @@
     <h1 class="text-[50px] font-bold text-center">
         Hello World
     </h1>
-    <span class="text-[20px] font-bold text-center text-blue-500">
-        Press the 'Spring MVC Demo - Home Page' to go back to the home page.
-    </span>
+    <jsp:include page="template-footer.jsp"/>
 </div>
 </body>
 </html>

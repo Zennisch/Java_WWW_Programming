@@ -23,6 +23,7 @@
             ${operatingSystem} /
         </c:forEach>
     </h2>
+    <jsp:include page="template-footer.jsp"/>
 </div>
 </body>
 </html>
