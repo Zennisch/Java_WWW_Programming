@@ -12,8 +12,11 @@
             http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/scripts/**" location="/scripts/"/>
+
     <context:component-scan
             base-package="controller"/>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/views/"/>
         <property name="suffix" value=".jsp"/>
