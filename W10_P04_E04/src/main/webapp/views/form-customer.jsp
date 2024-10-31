@@ -61,7 +61,7 @@
             <tr>
                 <td class="text-center px-4 py-4" colspan="2">
                     <input type="submit" value="Submit"
-                           class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer"/>
+                           class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer w-[50%]"/>
                 </td>
             </tr>
             </tbody>
