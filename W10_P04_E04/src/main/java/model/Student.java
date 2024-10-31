@@ -1,9 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Student {
 
@@ -13,19 +10,19 @@ public class Student {
     private String favoriteLanguage;
     private String[] operatingSystems;
 
-    private HashMap<String, String> countryOptions;
-    private HashMap<String, String> favoriteLanguageOptions;
+    private LinkedHashMap<String, String> countryOptions;
+    private LinkedHashMap<String, String> favoriteLanguageOptions;
     private List<String> operatingSystemsOptions;
 
     public Student() {
-        countryOptions = new HashMap<>();
+        countryOptions = new LinkedHashMap<>();
         countryOptions.put("BR", "Brazil");
         countryOptions.put("FR", "France");
         countryOptions.put("DE", "Germany");
         countryOptions.put("IN", "India");
         countryOptions.put("US", "United States");
 
-        favoriteLanguageOptions = new HashMap<>();
+        favoriteLanguageOptions = new LinkedHashMap<>();
         favoriteLanguageOptions.put("Java", "Java");
         favoriteLanguageOptions.put("C#", "C#");
         favoriteLanguageOptions.put("PHP", "PHP");
