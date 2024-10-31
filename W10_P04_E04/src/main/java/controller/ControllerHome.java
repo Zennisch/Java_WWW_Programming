@@ -11,4 +11,20 @@ public class ControllerHome {
         return "home";
     }
 
+    @RequestMapping("/hello")
+    public String requestHello() {
+        return "hello";
+    }
+
+    @RequestMapping("/form-student")
+    public String requestFormStudent() {
+        return "form-student";
+    }
+
+    @RequestMapping("/form-customer")
+    public String requestFormCustomer() {
+        return "form-customer";
+    }
+
+
 }
