@@ -1,9 +1,11 @@
 package controller;
 
+import jakarta.validation.Valid;
 import model.Customer;
 import model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,8 +41,12 @@ public class ControllerHome {
     }
 
     @RequestMapping("/confirm-customer")
-    public String requestProcessCustomer(@ModelAttribute("customer") Customer customer) {
-        return "confirm-customer";
+    public String requestProcessCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "form-customer";
+        } else {
+            return "confirm-customer";
+        }
     }
 
 }

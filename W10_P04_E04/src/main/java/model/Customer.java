@@ -1,11 +1,23 @@
 package model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class Customer {
 
+    @NotBlank(message = "This field is required")
     private String firstName;
+
+    @NotBlank(message = "This field is required")
     private String lastName;
+
+    @NotBlank(message = "This field is required")
     private String freePasses;
+
+    @NotBlank(message = "This field is required")
     private String postalCode;
+
+    @NotBlank(message = "This field is required")
     private String courseCode;
 
     public Customer() {
