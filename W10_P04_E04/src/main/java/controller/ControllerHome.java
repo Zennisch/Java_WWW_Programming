@@ -1,5 +1,6 @@
 package controller;
 
+import model.Customer;
 import model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,9 +33,14 @@ public class ControllerHome {
     }
 
     @RequestMapping("/form-customer")
-    public String requestFormCustomer() {
+    public String requestFormCustomer(Model model) {
+        model.addAttribute("customer", new Customer());
         return "form-customer";
     }
 
+    @RequestMapping("/process-customer")
+    public String requestProcessCustomer(@ModelAttribute("customer") Customer customer) {
+        return "process-customer";
+    }
 
 }
