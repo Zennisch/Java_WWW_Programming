@@ -52,9 +52,9 @@ public class ControllerHome {
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes
     ) {
-        // Here, what I want to do here is if the form has errors,
+        // Here, what I want to do is if the form has errors,
         // I want to redirect to the form-customer page instead of
-        // keeping the confirm-customer page which is not logical
+        // keeping in the confirm-customer page which is not logical
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.customer", bindingResult);
             redirectAttributes.addFlashAttribute("customer", customer);
