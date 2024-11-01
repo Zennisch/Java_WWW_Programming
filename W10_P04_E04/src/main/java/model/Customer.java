@@ -1,7 +1,6 @@
 package model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 
 public class Customer {
 
@@ -9,12 +8,16 @@ public class Customer {
     private String firstName;
 
     @NotBlank(message = "This field is required")
+    @Size(min = 4, message = "This field must be at least 4 characters long")
     private String lastName;
 
-    @NotBlank(message = "This field is required")
-    private String freePasses;
+    @NotNull(message = "This field is required")
+    @Min(value = 0, message = "Must be greater than or equal to zero")
+    @Max(value = 10, message = "Must be less than or equal to ten")
+    private Integer freePasses;
 
     @NotBlank(message = "This field is required")
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Only 5 characters/digits")
     private String postalCode;
 
     @NotBlank(message = "This field is required")
@@ -23,7 +26,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String freePasses, String postalCode, String courseCode) {
+    public Customer(String firstName, String lastName, Integer freePasses, String postalCode, String courseCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.freePasses = freePasses;
@@ -47,11 +50,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getFreePasses() {
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(String freePasses) {
+    public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
     }
 

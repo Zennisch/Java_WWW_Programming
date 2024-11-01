@@ -12,11 +12,11 @@
     <title>Title</title>
 </head>
 <body>
-<div class="flex flex-col justify-center items-center mx-auto w-[30%] h-full gap-[50px]">
+<div class="flex flex-col justify-center items-center mx-auto w-full h-full gap-[50px]">
     <jsp:include page="template-header.jsp"/>
     <%--@elvariable id="customer" type="model.Customer"--%>
     <form:form action="${pageContext.request.contextPath}/confirm-customer" method="post" modelAttribute="customer">
-        <table class="table table-auto table-fixed border-collapse border-spacing-4 w-full">
+        <table class="table table-auto border-collapse border-spacing-4 w-full">
             <tbody>
             <tr>
                 <td class="text-center px-4 py-4">
@@ -66,7 +66,7 @@
             <tr>
                 <td class="text-center px-4 py-4" colspan="2">
                     <input type="submit" value="Submit"
-                           class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer w-[50%]"/>
+                           class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer w-[30%]"/>
                 </td>
             </tr>
             </tbody>
