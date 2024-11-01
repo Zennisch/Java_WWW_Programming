@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ControllerHome {
@@ -36,14 +37,24 @@ public class ControllerHome {
 
     @RequestMapping("/form-customer")
     public String requestFormCustomer(Model model) {
-        model.addAttribute("customer", new Customer());
+        if (!model.containsAttribute("customer")) {
+            model.addAttribute("customer", new Customer());
+        }
         return "form-customer";
     }
 
     @RequestMapping("/confirm-customer")
-    public String requestProcessCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult) {
+    public String requestProcessCustomer(
+            @Valid @ModelAttribute("customer") Customer customer,
+            BindingResult bindingResult,
+            RedirectAttributes redirectAttributes
+    ) {
         if (bindingResult.hasErrors()) {
-            return "form-customer";
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.customer", bindingResult);
+            redirectAttributes.addFlashAttribute("customer", customer);
+
+            return "redirect:/form-customer";
+//            return "form-customer";
         } else {
             return "confirm-customer";
         }
