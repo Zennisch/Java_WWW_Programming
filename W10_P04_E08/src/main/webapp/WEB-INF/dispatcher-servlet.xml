@@ -33,6 +33,9 @@
                   value="jdbc:sqlserver://localhost:1433;databaseName=WWW_W10_P04_E08;encrypt=true;trustServerCertificate=true;"/>
         <property name="user" value="Developer"/>
         <property name="password" value="123"/>
+        <property name="minPoolSize" value="3"/>
+        <property name="maxPoolSize" value="5"/>
+        <property name="maxIdleTime" value="3600"/>
     </bean>
 
     <bean id="mySessionFactory"
@@ -43,6 +46,7 @@
             <props>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>
