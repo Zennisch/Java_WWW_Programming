@@ -38,6 +38,7 @@ public class ControllerHome {
     @RequestMapping("/form-customer")
     public String requestFormCustomer(Model model) {
         // Check if the model contains the attribute "customer"
+        // If yes, keep the attribute "customer" in the model which is also has the error messages
         // If not, add the attribute "customer" to the model
         if (!model.containsAttribute("customer")) {
             model.addAttribute("customer", new Customer());
@@ -51,12 +52,14 @@ public class ControllerHome {
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes
     ) {
+        // Here, what I want to do here is if the form has errors,
+        // I want to redirect to the form-customer page instead of
+        // keeping the confirm-customer page which is not logical
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.customer", bindingResult);
             redirectAttributes.addFlashAttribute("customer", customer);
 
             return "redirect:/form-customer";
-//            return "form-customer";
         } else {
             return "confirm-customer";
         }
