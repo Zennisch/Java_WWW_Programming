@@ -37,6 +37,8 @@ public class ControllerHome {
 
     @RequestMapping("/form-customer")
     public String requestFormCustomer(Model model) {
+        // Check if the model contains the attribute "customer"
+        // If not, add the attribute "customer" to the model
         if (!model.containsAttribute("customer")) {
             model.addAttribute("customer", new Customer());
         }
