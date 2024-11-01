@@ -24,6 +24,8 @@
                 </td>
                 <td class="px-4 py-2">
                     <form:input path="firstName" id="firstName" class="border border-gray-400 rounded-md p-2"/>
+                </td>
+                <td>
                     <form:errors path="firstName" cssClass="text-red-500"/>
                 </td>
             </tr>
@@ -33,6 +35,8 @@
                 </td>
                 <td class="px-4 py-2">
                     <form:input path="lastName" id="lastName" class="border border-gray-400 rounded-md p-2"/>
+                </td>
+                <td>
                     <form:errors path="lastName" cssClass="text-red-500"/>
                 </td>
             </tr>
@@ -42,6 +46,8 @@
                 </td>
                 <td class="px-4 py-2">
                     <form:input path="freePasses" id="freePasses" class="border border-gray-400 rounded-md p-2"/>
+                </td>
+                <td>
                     <form:errors path="freePasses" cssClass="text-red-500"/>
                 </td>
             </tr>
@@ -51,6 +57,8 @@
                 </td>
                 <td class="px-4 py-2">
                     <form:input path="postalCode" id="postalCode" class="border border-gray-400 rounded-md p-2"/>
+                </td>
+                <td>
                     <form:errors path="postalCode" cssClass="text-red-500"/>
                 </td>
             </tr>
@@ -60,11 +68,13 @@
                 </td>
                 <td class="px-4 py-2">
                     <form:input path="courseCode" id="courseCode" class="border border-gray-400 rounded-md p-2"/>
+                </td>
+                <td>
                     <form:errors path="courseCode" cssClass="text-red-500"/>
                 </td>
             </tr>
             <tr>
-                <td class="text-center px-4 py-4" colspan="2">
+                <td class="text-center px-4 py-4" colspan="3">
                     <input type="submit" value="Submit"
                            class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer w-[30%]"/>
                 </td>
