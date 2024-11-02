@@ -18,7 +18,7 @@ public class DAO_DeTai implements I_DAO_DeTai {
     @Override
     public List<DeTai> getAllDeTai() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from DeTai", DeTai.class).getResultList();
+        return session.createQuery("from DeTai dt JOIN FETCH dt.giangVien", DeTai.class).getResultList();
     }
 
     @Override
