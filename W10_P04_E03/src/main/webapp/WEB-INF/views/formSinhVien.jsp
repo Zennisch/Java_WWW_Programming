@@ -18,18 +18,22 @@
     <form:form action="save" method="post" class="space-y-4">
         <div class="flex items-center justify-between">
             <label class="text-gray-700 font-semibold">First Name:</label>
-            <form:input path="firstName" class="border border-gray-300 rounded-lg p-2 w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <form:input path="firstName"
+                        class="border border-gray-300 rounded-lg p-2 w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
         </div>
         <div class="flex items-center justify-between">
             <label class="text-gray-700 font-semibold">Last Name:</label>
-            <form:input path="lastName" class="border border-gray-300 rounded-lg p-2 w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <form:input path="lastName"
+                        class="border border-gray-300 rounded-lg p-2 w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
         </div>
         <div class="flex items-center justify-between">
             <label class="text-gray-700 font-semibold">Average Mark:</label>
-            <form:input path="averageMark" class="border border-gray-300 rounded-lg p-2 w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <form:input path="averageMark"
+                        class="border border-gray-300 rounded-lg p-2 w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
         </div>
         <div class="text-center">
-            <input type="submit" value="Save" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+            <input type="submit" value="Save"
+                   class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
         </div>
     </form:form>
 </div>
