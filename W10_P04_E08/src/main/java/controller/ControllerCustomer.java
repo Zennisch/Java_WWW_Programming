@@ -43,4 +43,21 @@ public class ControllerCustomer {
         }
     }
 
+    @GetMapping("/update-form")
+    public String updateForm(@ModelAttribute("id") int id, Model model) {
+        Customer customer = service_customer.getCustomerById(id);
+        model.addAttribute("customer", customer);
+        return "update-form";
+    }
+
+    @PostMapping("/update")
+    public String updateCustomer(@ModelAttribute("customer") Customer customer) {
+        boolean status = service_customer.updateCustomer(customer);
+        if (status) {
+            return "redirect:/customer/";
+        } else {
+            return "redirect:/customer/update-form";
+        }
+    }
+
 }
