@@ -18,7 +18,7 @@
     <jsp:include page="template-navigation.jsp" />
 
     <h1 class="text-center font-bold text-[30px]">Customer List</h1>
-    <table class="table table-auto w-[70%] border border-collapse border-black">
+    <table class="table table-auto w-[75%] border border-collapse border-black">
         <thead>
         <tr class="text-center">
             <th class="border border-black">ID</th>
