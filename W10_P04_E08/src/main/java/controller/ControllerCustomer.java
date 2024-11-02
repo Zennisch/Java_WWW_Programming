@@ -60,4 +60,14 @@ public class ControllerCustomer {
         }
     }
 
+    @GetMapping("/delete")
+    public String deleteCustomer(@ModelAttribute("id") int id) {
+        boolean status = service_customer.deleteCustomer(id);
+        if (status) {
+            return "redirect:/customer/";
+        } else {
+            return "redirect:/customer/";
+        }
+    }
+
 }

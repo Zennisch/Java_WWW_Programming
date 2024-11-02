@@ -10,7 +10,8 @@
 <nav class="flex flex-row justify-evenly items-center w-[75%] h-[64px] gap-[18px] rounded-xl">
     <a href="${pageContext.request.contextPath}/customer/"
        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Customer List</a>
+        Customer List
+    </a>
     <a href="${pageContext.request.contextPath}/customer/create-form"
        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Add Customer
