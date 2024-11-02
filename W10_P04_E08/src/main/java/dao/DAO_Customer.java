@@ -18,6 +18,7 @@ public class DAO_Customer implements I_DAO_Customer {
     private SessionFactory sessionFactory;
 
     @Override
+    @Transactional
     public List<Customer> getAllCustomers() {
         Session session = sessionFactory.getCurrentSession();
         Query<Customer> query = session.createQuery("from Customer", Customer.class);
@@ -26,6 +27,7 @@ public class DAO_Customer implements I_DAO_Customer {
     }
 
     @Override
+    @Transactional
     public Customer getCustomerById(int id) {
         Session session = sessionFactory.getCurrentSession();
         Customer customer = session.get(Customer.class, id);
