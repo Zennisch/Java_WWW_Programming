@@ -1,7 +1,6 @@
 package dao;
 
 import dao_interface.I_DAO_Customer;
-import jakarta.transaction.Transactional;
 import model.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
