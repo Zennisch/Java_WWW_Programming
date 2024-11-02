@@ -14,8 +14,8 @@
 </head>
 <body>
 <div class="flex flex-col justify-center items-center w-full h-full gap-[24px]">
-    <jsp:include page="template-header.jsp" />
-    <jsp:include page="template-navigation.jsp" />
+    <jsp:include page="template-header.jsp"/>
+    <jsp:include page="template-navigation.jsp"/>
 
     <h1 class="text-center font-bold text-[30px]">Customer List</h1>
     <table class="table table-auto w-[75%] border border-collapse border-black">
@@ -49,6 +49,9 @@
                     <br>
                     <a href="${deleteUrl}"
                        class="text-red-500 font-bold rounded"
+                       onclick="return confirm('' +
+                        'Are you sure you want to delete this customer?\n' +
+                        'This action cannot be undone.')"
                     >Delete</a>
                 </td>
             </tr>
