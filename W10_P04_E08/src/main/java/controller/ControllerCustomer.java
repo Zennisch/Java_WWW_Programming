@@ -35,8 +35,12 @@ public class ControllerCustomer {
 
     @PostMapping("/create")
     public String createCustomer(@ModelAttribute("customer") Customer customer) {
-        service_customer.createCustomer(customer);
-        return "redirect:/";
+        boolean status = service_customer.createCustomer(customer);
+        if (status) {
+            return "redirect:/customer/";
+        } else {
+            return "redirect:/customer/add-form";
+        }
     }
 
 }
