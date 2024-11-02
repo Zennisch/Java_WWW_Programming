@@ -40,6 +40,7 @@ public class Service_Customer implements I_Service_Customer {
     }
 
     @Override
+    @Transactional
     public boolean deleteCustomer(int id) {
         return dao_customer.deleteCustomer(id);
     }
