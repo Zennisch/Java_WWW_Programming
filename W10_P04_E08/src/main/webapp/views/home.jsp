@@ -12,7 +12,7 @@
     <script src="${pageContext.request.contextPath}/scripts/tailwindcss.min.js"></script>
 </head>
 <body>
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-center items-center w-full h-full">
         <a href="customer/"
            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >Customers</a>
