@@ -26,11 +26,11 @@ public class ControllerCustomer {
         return "customers";
     }
 
-    @GetMapping("/add-form")
+    @GetMapping("/create-form")
     public String addForm(Model model) {
         Customer customer = new Customer();
         model.addAttribute("customer", customer);
-        return "add-form";
+        return "create-form";
     }
 
     @PostMapping("/create")

@@ -11,7 +11,7 @@
     <a href="${pageContext.request.contextPath}/customer/"
        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Customer List</a>
-    <a href="${pageContext.request.contextPath}/customer/add-form"
+    <a href="${pageContext.request.contextPath}/customer/create-form"
        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Add Customer
     </a>
