@@ -26,6 +26,13 @@ public class ControllerCustomer {
         return "customers";
     }
 
+    @GetMapping("/add-form")
+    public String addForm(Model model) {
+        Customer customer = new Customer();
+        model.addAttribute("customer", customer);
+        return "add-form";
+    }
+
     @PostMapping("/create")
     public String createCustomer(@ModelAttribute("customer") Customer customer) {
         service_customer.createCustomer(customer);

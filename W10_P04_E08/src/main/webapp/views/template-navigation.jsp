@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="${pageContext.request.contextPath}/scripts/tailwindcss.min.js"></script>
-<nav class="flex flex-row justify-evenly items-center w-[75%] h-[64px] bg-cyan-500 gap-[18px] rounded-xl">
+<nav class="flex flex-row justify-evenly items-center w-[75%] h-[64px] gap-[18px] rounded-xl">
     <a href="customer/"
        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Customer List</a>

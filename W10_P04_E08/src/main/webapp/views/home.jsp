@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Welcome</title>
     <script src="${pageContext.request.contextPath}/scripts/tailwindcss.min.js"></script>
 </head>
 <body>

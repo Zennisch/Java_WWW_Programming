@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Customer List</title>
     <script src="${pageContext.request.contextPath}/scripts/tailwindcss.min.js"></script>
 </head>
 <body>
