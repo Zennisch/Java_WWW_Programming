@@ -12,5 +12,8 @@
 </head>
 <body>
     <h1>Hello World!</h1>
+    <a href="${pageContext.request.contextPath}/FormSinhVien">
+    	Form Sinh Viên
+    </a>
 </body>
 </html>
