@@ -9,7 +9,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Add Customer</title>
+    <title>Update Customer</title>
     <script src="${pageContext.request.contextPath}/scripts/tailwindcss.min.js"></script>
 </head>
 <body>
