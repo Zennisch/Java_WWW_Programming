@@ -44,15 +44,17 @@
                 <td class="border border-black">${customer.email}</td>
                 <td class="border border-black">
                     <a href="${updateUrl}"
-                       class="text-yellow-500 font-bold rounded"
-                    >Update</a>
+                       class="text-yellow-500 font-bold rounded">
+                        Update
+                    </a>
                     <br>
                     <a href="${deleteUrl}"
                        class="text-red-500 font-bold rounded"
                        onclick="return confirm('' +
                         'Are you sure you want to delete this customer?\n' +
-                        'This action cannot be undone.')"
-                    >Delete</a>
+                        'This action cannot be undone.')">
+                        Delete
+                    </a>
                 </td>
             </tr>
         </c:forEach>
