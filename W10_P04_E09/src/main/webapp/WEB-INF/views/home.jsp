@@ -12,7 +12,8 @@
 </head>
 <body>
 <div class="flex flex-col justify-start items-center py-4">
-<jsp:include page="template-header.jsp"/>
+    <jsp:include page="template-header.jsp"/>
+    <jsp:include page="template-navigation.jsp"/>
 </div>
 </body>
 </html>
