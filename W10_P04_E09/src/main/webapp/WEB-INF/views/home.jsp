@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Welcome</title>
 </head>
 <body>
-    <a href="GiangVien/">List Giang Vien</a>
+<div class="flex flex-col justify-start items-center py-4">
+<jsp:include page="template-header.jsp"/>
+</div>
 </body>
 </html>
