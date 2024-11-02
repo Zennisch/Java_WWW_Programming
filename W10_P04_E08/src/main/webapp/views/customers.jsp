@@ -31,10 +31,10 @@
         <tbody>
         <%--@elvariable id="customers" type="java.util.List"--%>
         <c:forEach items="${customers}" var="customer">
-            <c:url var="updateUrl" value="/customer/update-form">
+            <c:url var="updateUrl" value="${pageContext.request.contextPath}/customer/update-form">
                 <c:param name="id" value="${customer.id}"/>
             </c:url>
-            <c:url var="deleteUrl" value="/customer/delete">
+            <c:url var="deleteUrl" value="${pageContext.request.contextPath}/customer/delete">
                 <c:param name="id" value="${customer.id}"/>
             </c:url>
             <tr class="text-center">
