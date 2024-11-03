@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="${pageContext.request.contextPath}/resources/tailwindcss.min.js"></script>
-<a href="${pageContext.request.contextPath}"
+<a href="/"
     class="text-black font-bold text-[48px] cursor-pointer">
     Quản Lý Giảng Viên và Đề Tài Tốt Nghiệp
 </a>
