@@ -83,4 +83,13 @@ public class ControllerDeTai {
 
         return "redirect:/DeTai/";
     }
+
+    @GetMapping("/delete")
+    public String deleteDeTai(@RequestParam("maDeTai") Integer maDeTai) {
+        boolean statusDelete = service_deTai.deleteDeTai(maDeTai);
+        if (!statusDelete)
+            System.err.println("Error: deleteDeTai failed for maDeTai: " + maDeTai);
+
+        return "redirect:/DeTai/";
+    }
 }

@@ -31,6 +31,15 @@
             </thead>
             <tbody>
             <c:forEach items="${listDeTai}" var="deTai">
+                <c:url var="urlCheck" value="/DeTai/check">
+                    <c:param name="maDeTai" value="${deTai.maDeTai}"/>
+                </c:url>
+                <c:url var="urlUpdate" value="/DeTai/update">
+                    <c:param name="maDeTai" value="${deTai.maDeTai}"/>
+                </c:url>
+                <c:url var="urlDelete" value="/DeTai/delete">
+                    <c:param name="maDeTai" value="${deTai.maDeTai}"/>
+                </c:url>
                 <tr class="text-center">
                     <td class="border border-2 border-black py-2">${deTai.maDeTai}</td>
                     <td class="border border-2 border-black py-2">${deTai.tenDeTai}</td>
@@ -43,17 +52,18 @@
                     <td class="border border-2 border-black py-2">${deTai.giangVien.tenGV}</td>
                     <td class="border border-2 border-black py-2">
                         <div class="flex flex-col justify-center items-center">
-                            <a href="#"
+                            <a href="${urlCheck}"
                                class="bg-blue-500 text-white font-bold px-[20px] py-1 rounded">
                                 Xem
                             </a>
                             <br>
-                            <a href="#"
+                            <a href="${urlUpdate}"
                                class="bg-yellow-500 text-white font-bold px-[20px] py-1 rounded">
                                 Sửa
                             </a>
                             <br>
-                            <a href="#"
+                            <a href="${urlDelete}"
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa không?\nXóa sẽ không thể khôi phục.')"
                                class="bg-red-500 text-white font-bold px-[20px] py-1 rounded">
                                 Xóa
                             </a>
