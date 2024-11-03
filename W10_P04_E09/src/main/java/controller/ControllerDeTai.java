@@ -43,12 +43,18 @@ public class ControllerDeTai {
                 .map(i -> currentYear - i + startYear)
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
-
         model.addAttribute("deTai", deTai);
         model.addAttribute("listGiangVien", listGiangVien);
         model.addAttribute("listNam", listNam);
 
         return "formCreateDeTai";
+    }
+
+    @GetMapping("/check")
+    public String checkDeTai(@RequestParam("maDeTai") Integer maDeTai, Model model) {
+        DeTai deTai = service_deTai.getDeTaiById(maDeTai);
+        model.addAttribute("deTai", deTai);
+        return "checkDeTai";
     }
 
     private static final String UPLOAD_DIR = "WEB-INF/resources/image_DeTai/";
@@ -110,7 +116,7 @@ public class ControllerDeTai {
     ) throws IOException {
         DeTai oldDeTai = service_deTai.getDeTaiById(deTai.getMaDeTai());
         deTai.setUrlHinh(oldDeTai.getUrlHinh());
-        
+
         if (hinh == null || hinh.isEmpty()) {
             boolean statusUpdate = service_deTai.updateDeTai(deTai);
             if (!statusUpdate)
