@@ -2,13 +2,16 @@ package controller;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import model.DeTai;
 import model.GiangVien;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import service_interface.I_Service_DeTai;
 
 import java.io.File;
@@ -32,9 +35,15 @@ public class ControllerDeTai {
         return "deTai";
     }
 
+    @GetMapping("/check")
+    public String checkDeTai(@RequestParam("maDeTai") Integer maDeTai, Model model) {
+        DeTai deTai = service_deTai.getDeTaiById(maDeTai);
+        model.addAttribute("deTai", deTai);
+        return "checkDeTai";
+    }
+
     @GetMapping("/form-create")
     public String formCreateDeTai(Model model) {
-        DeTai deTai = new DeTai();
         List<GiangVien> listGiangVien = service_deTai.getAllGiangVien();
 
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -43,18 +52,13 @@ public class ControllerDeTai {
                 .map(i -> currentYear - i + startYear)
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
-        model.addAttribute("deTai", deTai);
+        if (!model.containsAttribute("deTai"))
+            model.addAttribute("deTai", new DeTai());
+
         model.addAttribute("listGiangVien", listGiangVien);
         model.addAttribute("listNam", listNam);
 
         return "formCreateDeTai";
-    }
-
-    @GetMapping("/check")
-    public String checkDeTai(@RequestParam("maDeTai") Integer maDeTai, Model model) {
-        DeTai deTai = service_deTai.getDeTaiById(maDeTai);
-        model.addAttribute("deTai", deTai);
-        return "checkDeTai";
     }
 
     private static final String UPLOAD_DIR = "WEB-INF/resources/image_DeTai/";
@@ -62,32 +66,44 @@ public class ControllerDeTai {
 
     @PostMapping("/create")
     public String createDeTai(
+            @Valid @ModelAttribute("deTai") DeTai deTai,
+            BindingResult bindingResult,
+            @RequestParam("hinh") MultipartFile hinh,
             HttpSession session,
-            @ModelAttribute("deTai") DeTai deTai,
-            @RequestParam("hinh") MultipartFile hinh
-    ) throws IOException {
-        boolean statusCreate = service_deTai.createDeTai(deTai);
-        if (!statusCreate)
+            RedirectAttributes redirectAttributes
+    ) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.deTai", bindingResult);
+            redirectAttributes.addFlashAttribute("deTai", deTai);
             return "redirect:/DeTai/form-create";
+        } else {
+            boolean statusCreate = service_deTai.createDeTai(deTai);
+            if (!statusCreate)
+                return "redirect:/DeTai/form-create";
 
-        if (hinh == null || hinh.isEmpty())
+            if (hinh == null || hinh.isEmpty())
+                return "redirect:/DeTai/";
+
+            ServletContext context = session.getServletContext();
+            String realPath = context.getRealPath(UPLOAD_DIR);
+            String fileName = deTai.getMaDeTai() + "_" + hinh.getOriginalFilename();
+
+            String filePath = realPath + fileName;
+            File file = new File(filePath);
+            try {
+                hinh.transferTo(file);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            String fileUrl = UPLOAD_URL + fileName;
+            deTai.setUrlHinh(fileUrl);
+            boolean statusUpdate = service_deTai.updateDeTai(deTai);
+            if (!statusUpdate)
+                System.err.println("Error: updateDeTai failed for deTai: " + deTai);
+
             return "redirect:/DeTai/";
-
-        ServletContext context = session.getServletContext();
-        String realPath = context.getRealPath(UPLOAD_DIR);
-        String fileName = deTai.getMaDeTai() + "_" + hinh.getOriginalFilename();
-
-        String filePath = realPath + fileName;
-        File file = new File(filePath);
-        hinh.transferTo(file);
-
-        String fileUrl = UPLOAD_URL + fileName;
-        deTai.setUrlHinh(fileUrl);
-        boolean statusUpdate = service_deTai.updateDeTai(deTai);
-        if (!statusUpdate)
-            System.err.println("Error: updateDeTai failed for deTai: " + deTai);
-
-        return "redirect:/DeTai/";
+        }
     }
 
     @GetMapping("/form-update")

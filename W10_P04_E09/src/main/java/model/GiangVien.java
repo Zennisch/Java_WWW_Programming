@@ -1,6 +1,8 @@
 package model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 import java.util.Objects;
 
@@ -13,20 +15,24 @@ public class GiangVien {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer maGV;
 
+    @NotBlank(message = "Không được để trống tên giảng viên")
     @Column(name = "TENGV", columnDefinition = "NVARCHAR(50)")
     private String tenGV;
 
     @Column(name = "LINHVUCNGHIENCUU", columnDefinition = "NVARCHAR(50)")
     private String linhVucNghienCuu;
 
+    @NotBlank(message = "Không được để trống số điện thoại")
+    @Pattern(regexp = "^[0-9]{9,11}$", message = "Số điện thoại phải từ 9 đến 11 số")
     @Column(name = "DIENTHOAI", columnDefinition = "NVARCHAR(10)")
     private String dienThoai;
 
+    @NotBlank(message = "Không được để trống email")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(com|org|net\\.vn)$", message = "Email không hợp lệ")
     @Column(name = "EMAIL", columnDefinition = "NVARCHAR(50)")
     private String email;
 
-    public GiangVien() {
-    }
+    public GiangVien() {}
 
     public GiangVien(Integer maGV, String tenGV, String linhVucNghienCuu, String dienThoai, String email) {
         this.maGV = maGV;

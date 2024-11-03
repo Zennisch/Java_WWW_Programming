@@ -1,6 +1,8 @@
 package model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
@@ -13,12 +15,15 @@ public class DeTai {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer maDeTai;
 
+    @NotBlank(message = "Không được để trống tên đề tài")
     @Column(name = "TENDETAI", columnDefinition = "NVARCHAR(100)")
     private String tenDeTai;
 
+    @NotNull(message = "Không được để trống năm")
     @Column(name = "NAM")
     private Integer nam;
 
+    @NotBlank(message = "Không được để trống mô tả")
     @Column(name = "MOTA", columnDefinition = "NVARCHAR(500)")
     private String moTaDeTai;
 

@@ -32,6 +32,7 @@
             <div class="col-span-2">
                 <form:input path="tenDeTai" id="tenDeTai"
                             class="w-full border border-2 border-black rounded-md px-4 py-2"/>
+                <form:errors path="tenDeTai" cssClass="text-red-500"/>
             </div>
             <div class="col-span-2">
                 <label for="nam"
@@ -46,6 +47,7 @@
                     <%--@elvariable id="listNam" type="java.util.List"--%>
                     <form:options items="${listNam}"/>
                 </form:select>
+                <form:errors path="nam" cssClass="text-red-500"/>
             </div>
             <div class="col-span-2">
                 <label for="moTaDeTai"
@@ -56,6 +58,7 @@
             <div class="col-span-2">
                 <form:textarea path="moTaDeTai" id="moTaDeTai"
                                class="w-full border border-2 border-black rounded-md px-4 py-2"/>
+                <form:errors path="moTaDeTai" cssClass="text-red-500"/>
             </div>
             <div class="col-span-2">
                 <label for="hinh"
