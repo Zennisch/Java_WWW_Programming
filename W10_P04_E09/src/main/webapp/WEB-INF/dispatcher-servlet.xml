@@ -56,5 +56,9 @@
         <property name="sessionFactory" ref="mySessionFactory"/>
     </bean>
 
+    <bean id="multipartResolver"
+            class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+    </bean>
+
     <tx:annotation-driven proxy-target-class="true" transaction-manager="myTransactionManager"/>
 </beans>
