@@ -69,7 +69,7 @@ public class ControllerDeTai {
 
         ServletContext context = session.getServletContext();
         String realPath = context.getRealPath(UPLOAD_DIR);
-        String fileName = hinh.getOriginalFilename();
+        String fileName = deTai.getMaDeTai() + "_" + hinh.getOriginalFilename();
 
         String filePath = realPath + fileName;
         File file = new File(filePath);
