@@ -15,7 +15,7 @@
 <div class="flex flex-col justify-start items-center py-4 gap-4">
     <jsp:include page="template-header.jsp"/>
     <jsp:include page="template-navigation.jsp"/>
-    <h1 class="text-4xl font-bold">Thêm đề tài mới</h1>
+    <h1 class="text-4xl font-bold">Tạo đề tài mới</h1>
     <%--@elvariable id="deTai" type="model.DeTai"--%>
     <form:form cssClass="w-[30%] py-4"
                action="create"

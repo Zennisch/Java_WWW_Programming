@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <script src="${pageContext.request.contextPath}/resources/tailwindcss.min.js"></script>
 <nav class="flex flex-row justify-center items-center py-4 bg-gray-100 w-full gap-4">
+    <a href="${pageContext.request.contextPath}/GiangVien/form-create"
+       class="text-black font-bold text-[18px] cursor-pointer px-4 bg-gray-300 hover:bg-gray-400 rounded-lg">
+        Thêm Giảng Viên
+    </a>
     <a href="${pageContext.request.contextPath}/GiangVien/"
        class="text-black font-bold text-[18px] cursor-pointer px-4 bg-gray-300 hover:bg-gray-400 rounded-lg">
-        Danh Sách Giảng Viên
+        Quản Lý Giảng Viên
     </a>
     <a href="${pageContext.request.contextPath}/DeTai/form-create"
        class="text-black font-bold text-[18px] cursor-pointer px-4 bg-gray-300 hover:bg-gray-400 rounded-lg">

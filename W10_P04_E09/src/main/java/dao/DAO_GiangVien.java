@@ -27,4 +27,16 @@ public class DAO_GiangVien implements I_DAO_GiangVien {
         return session.get(GiangVien.class, id);
     }
 
+    @Override
+    public boolean createGiangVien(GiangVien giangVien) {
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.persist(giangVien);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+            return false;
+        }
+    }
+
 }

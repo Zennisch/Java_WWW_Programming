@@ -26,4 +26,10 @@ public class Service_GiangVien implements I_Service_GiangVien {
     public GiangVien getGiangVienById(int id) {
         return dao_giangVien.getGiangVienById(id);
     }
+
+    @Override
+    @Transactional
+    public boolean createGiangVien(GiangVien giangVien) {
+        return dao_giangVien.createGiangVien(giangVien);
+    }
 }

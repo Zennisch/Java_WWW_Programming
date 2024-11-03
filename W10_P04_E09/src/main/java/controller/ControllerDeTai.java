@@ -116,10 +116,9 @@ public class ControllerDeTai {
                 .map(i -> currentYear - i + startYear)
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
-        if (!model.containsAttribute("deTai")) {
-            DeTai deTai = service_deTai.getDeTaiById(maDeTai);
-            model.addAttribute("deTai", deTai);
-        }
+        if (!model.containsAttribute("deTai"))
+            model.addAttribute("deTai", service_deTai.getDeTaiById(maDeTai));
+
         model.addAttribute("listGiangVien", listGiangVien);
         model.addAttribute("listNam", listNam);
 

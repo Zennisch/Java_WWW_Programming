@@ -8,5 +8,6 @@ public interface I_DAO_GiangVien {
 
     List<GiangVien> getAllGiangVien();
     GiangVien getGiangVienById(int id);
+    boolean createGiangVien(GiangVien giangVien);
 
 }

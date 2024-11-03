@@ -19,6 +19,7 @@ public class GiangVien {
     @Column(name = "TENGV", columnDefinition = "NVARCHAR(50)")
     private String tenGV;
 
+    @NotBlank(message = "Không được để trống lĩnh vực nghiên cứu")
     @Column(name = "LINHVUCNGHIENCUU", columnDefinition = "NVARCHAR(50)")
     private String linhVucNghienCuu;
 
