@@ -34,7 +34,7 @@
                 <c:url var="urlCheck" value="/DeTai/check">
                     <c:param name="maDeTai" value="${deTai.maDeTai}"/>
                 </c:url>
-                <c:url var="urlUpdate" value="/DeTai/update">
+                <c:url var="urlUpdate" value="/DeTai/form-update">
                     <c:param name="maDeTai" value="${deTai.maDeTai}"/>
                 </c:url>
                 <c:url var="urlDelete" value="/DeTai/delete">

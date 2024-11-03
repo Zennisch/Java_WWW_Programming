@@ -84,6 +84,54 @@ public class ControllerDeTai {
         return "redirect:/DeTai/";
     }
 
+    @GetMapping("/form-update")
+    public String formUpdateDeTai(@RequestParam("maDeTai") Integer maDeTai, Model model) {
+        DeTai deTai = service_deTai.getDeTaiById(maDeTai);
+        List<GiangVien> listGiangVien = service_deTai.getAllGiangVien();
+
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int startYear = 2000;
+        List<Integer> listNam = IntStream.range(startYear, currentYear)
+                .map(i -> currentYear - i + startYear)
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+
+        model.addAttribute("deTai", deTai);
+        model.addAttribute("listGiangVien", listGiangVien);
+        model.addAttribute("listNam", listNam);
+
+        return "formUpdateDeTai";
+    }
+
+    @PostMapping("/update")
+    public String updateDeTai(
+            HttpSession session,
+            @ModelAttribute("deTai") DeTai deTai,
+            @RequestParam("hinh") MultipartFile hinh
+    ) throws IOException {
+        if (hinh == null || hinh.isEmpty()) {
+            boolean statusUpdate = service_deTai.updateDeTai(deTai);
+            if (!statusUpdate)
+                System.err.println("Error: updateDeTai failed for deTai: " + deTai);
+
+        } else {
+            ServletContext context = session.getServletContext();
+            String realPath = context.getRealPath(UPLOAD_DIR);
+            String fileName = deTai.getMaDeTai() + "_" + hinh.getOriginalFilename();
+
+            String filePath = realPath + fileName;
+            File file = new File(filePath);
+            hinh.transferTo(file);
+
+            String fileUrl = UPLOAD_URL + fileName;
+            deTai.setUrlHinh(fileUrl);
+            boolean statusUpdate = service_deTai.updateDeTai(deTai);
+            if (!statusUpdate)
+                System.err.println("Error: updateDeTai failed for deTai: " + deTai);
+
+        }
+        return "redirect:/DeTai/";
+    }
+
     @GetMapping("/delete")
     public String deleteDeTai(@RequestParam("maDeTai") Integer maDeTai) {
         boolean statusDelete = service_deTai.deleteDeTai(maDeTai);
