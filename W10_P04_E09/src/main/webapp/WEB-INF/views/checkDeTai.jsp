@@ -19,7 +19,7 @@
     <h3 class="text-2xl font-bold">Giảng viên hướng dẫn: ${deTai.giangVien.tenGV}</h3>
     <img src="${deTai.urlHinh}" alt="Ảnh đề tài ${deTai.tenDeTai}" class="w-32 h-32 object-contain mx-auto">
     <h4 class="text-xl font-bold">Mô tả đề tài</h4>
-    <p class="text-lg">
+    <p class="text-lg w-[90%] text-center">
         ${deTai.moTaDeTai}
     </p>
 </div>
