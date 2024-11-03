@@ -1,5 +1,7 @@
 package controller;
 
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpSession;
 import model.DeTai;
 import model.GiangVien;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import service_interface.I_Service_DeTai;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -47,14 +51,36 @@ public class ControllerDeTai {
         return "formCreateDeTai";
     }
 
+    private static final String UPLOAD_DIR = "WEB-INF/resources/image_DeTai/";
+    private static final String UPLOAD_URL = "/resources/image_DeTai/";
+
     @PostMapping("/create")
     public String createDeTai(
+            HttpSession session,
             @ModelAttribute("deTai") DeTai deTai,
             @RequestParam("hinh") MultipartFile hinh
-    ) {
-        System.out.println(deTai);
-        System.out.println(hinh.getOriginalFilename());
+    ) throws IOException {
+        boolean statusCreate = service_deTai.createDeTai(deTai);
+        if (!statusCreate)
+            return "redirect:/DeTai/form-create";
+
+        if (hinh == null || hinh.isEmpty())
+            return "redirect:/DeTai/";
+
+        ServletContext context = session.getServletContext();
+        String realPath = context.getRealPath(UPLOAD_DIR);
+        String fileName = hinh.getOriginalFilename();
+
+        String filePath = realPath + fileName;
+        File file = new File(filePath);
+        hinh.transferTo(file);
+
+        String fileUrl = UPLOAD_URL + fileName;
+        deTai.setUrlHinh(fileUrl);
+        boolean statusUpdate = service_deTai.updateDeTai(deTai);
+        if (!statusUpdate)
+            System.err.println("Error: updateDeTai failed for deTai: " + deTai);
+
         return "redirect:/DeTai/";
     }
-
 }
