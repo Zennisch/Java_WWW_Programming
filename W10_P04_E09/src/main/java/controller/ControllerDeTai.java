@@ -108,6 +108,9 @@ public class ControllerDeTai {
             @ModelAttribute("deTai") DeTai deTai,
             @RequestParam("hinh") MultipartFile hinh
     ) throws IOException {
+        DeTai oldDeTai = service_deTai.getDeTaiById(deTai.getMaDeTai());
+        deTai.setUrlHinh(oldDeTai.getUrlHinh());
+        
         if (hinh == null || hinh.isEmpty()) {
             boolean statusUpdate = service_deTai.updateDeTai(deTai);
             if (!statusUpdate)
