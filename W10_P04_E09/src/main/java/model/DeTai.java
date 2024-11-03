@@ -30,6 +30,7 @@ public class DeTai {
     @Column(name = "URLHINH", columnDefinition = "NVARCHAR(100)")
     private String urlHinh;
 
+    @NotNull(message = "Không được để trống giảng viên")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MAGV")
     private GiangVien giangVien;

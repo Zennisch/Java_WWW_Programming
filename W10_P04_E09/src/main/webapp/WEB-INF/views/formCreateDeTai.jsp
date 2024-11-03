@@ -43,6 +43,7 @@
             <div class="col-span-2">
                 <form:select path="nam" id="nam"
                              class="w-full border border-2 border-black rounded-md px-4 py-2">
+                    <form:option value="" nullValue="true" selected="true" disabled="true">Chọn năm</form:option>
                     <%--@elvariable id="listNam" type="java.util.List"--%>
                     <form:options items="${listNam}"/>
                 </form:select>
@@ -77,10 +78,11 @@
             <div class="col-span-2">
                 <form:select path="giangVien.maGV" id="tenGV"
                              class="w-full border border-2 border-black rounded-md px-4 py-2">
+                    <form:option value="" nullValue="true" selected="true" disabled="true">Chọn giảng viên</form:option>
                     <%--@elvariable id="listGiangVien" type="java.util.List"--%>
                     <form:options items="${listGiangVien}" itemValue="maGV" itemLabel="tenGV"/>
                 </form:select>
-                <form:errors path="giangVien.maGV" cssClass="text-red-500"/>
+                <form:errors path="giangVien" cssClass="text-red-500"/>
             </div>
             <div class="col-span-4 flex justify-center items-center">
                 <input type="submit" value="Tạo đề tài"
