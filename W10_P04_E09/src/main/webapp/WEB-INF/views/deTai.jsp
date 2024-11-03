@@ -42,19 +42,19 @@
                     </td>
                     <td class="border border-2 border-black py-2">${deTai.giangVien.tenGV}</td>
                     <td class="border border-2 border-black py-2">
-                        <div class="flex flex-col justify-evenly items-center">
+                        <div class="flex flex-col justify-center items-center">
                             <a href="#"
-                               class="bg-blue-500 text-white font-bold px-3 py-1 rounded">
+                               class="bg-blue-500 text-white font-bold px-[20px] py-1 rounded">
                                 Xem
                             </a>
                             <br>
                             <a href="#"
-                               class="bg-yellow-500 text-white font-bold px-3 py-1 rounded">
+                               class="bg-yellow-500 text-white font-bold px-[20px] py-1 rounded">
                                 Sửa
                             </a>
                             <br>
                             <a href="#"
-                               class="bg-red-500 text-white font-bold px-3 py-1 rounded">
+                               class="bg-red-500 text-white font-bold px-[20px] py-1 rounded">
                                 Xóa
                             </a>
                         </div>
