@@ -16,7 +16,7 @@ public class DeTai {
     private Integer maDeTai;
 
     @NotBlank(message = "Không được để trống tên đề tài")
-    @Column(name = "TENDETAI", columnDefinition = "NVARCHAR(100)")
+    @Column(name = "TENDETAI", columnDefinition = "nvarchar(100)")
     private String tenDeTai;
 
     @NotNull(message = "Không được để trống năm")
@@ -24,10 +24,10 @@ public class DeTai {
     private Integer nam;
 
     @NotBlank(message = "Không được để trống mô tả")
-    @Column(name = "MOTA", columnDefinition = "NVARCHAR(500)")
+    @Column(name = "MOTA", columnDefinition = "nvarchar(2500)")
     private String moTaDeTai;
 
-    @Column(name = "URLHINH", columnDefinition = "NVARCHAR(100)")
+    @Column(name = "URLHINH", columnDefinition = "nvarchar(100)")
     private String urlHinh;
 
     @NotNull(message = "Không được để trống giảng viên")

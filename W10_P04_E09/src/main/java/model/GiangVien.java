@@ -16,21 +16,21 @@ public class GiangVien {
     private Integer maGV;
 
     @NotBlank(message = "Không được để trống tên giảng viên")
-    @Column(name = "TENGV", columnDefinition = "NVARCHAR(50)")
+    @Column(name = "TENGV", columnDefinition = "nvarchar(50)")
     private String tenGV;
 
     @NotBlank(message = "Không được để trống lĩnh vực nghiên cứu")
-    @Column(name = "LINHVUCNGHIENCUU", columnDefinition = "NVARCHAR(50)")
+    @Column(name = "LINHVUCNGHIENCUU", columnDefinition = "nvarchar(50)")
     private String linhVucNghienCuu;
 
     @NotBlank(message = "Không được để trống số điện thoại")
     @Pattern(regexp = "^[0-9]{9,11}$", message = "Số điện thoại phải từ 9 đến 11 số")
-    @Column(name = "DIENTHOAI", columnDefinition = "NVARCHAR(10)")
+    @Column(name = "DIENTHOAI", columnDefinition = "nvarchar(10)")
     private String dienThoai;
 
     @NotBlank(message = "Không được để trống email")
     @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(com|org|net\\.vn)$", message = "Email không hợp lệ")
-    @Column(name = "EMAIL", columnDefinition = "NVARCHAR(50)")
+    @Column(name = "EMAIL", columnDefinition = "nvarchar(50)")
     private String email;
 
     public GiangVien() {}
