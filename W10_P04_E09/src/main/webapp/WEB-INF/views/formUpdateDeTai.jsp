@@ -33,6 +33,7 @@
             <div class="col-span-2">
                 <form:input path="tenDeTai" id="tenDeTai"
                             class="w-full border border-2 border-black rounded-md px-4 py-2"/>
+                <form:errors path="tenDeTai" cssClass="text-red-500"/>
             </div>
             <div class="col-span-2">
                 <label for="nam"
@@ -41,12 +42,12 @@
                 </label>
             </div>
             <div class="col-span-2">
-
                 <form:select path="nam" id="nam"
                              class="w-full border border-2 border-black rounded-md px-4 py-2">
                     <%--@elvariable id="listNam" type="java.util.List"--%>
                     <form:options items="${listNam}"/>
                 </form:select>
+                <form:errors path="nam" cssClass="text-red-500"/>
             </div>
             <div class="col-span-2">
                 <label for="moTaDeTai"
@@ -57,6 +58,7 @@
             <div class="col-span-2">
                 <form:textarea path="moTaDeTai" id="moTaDeTai"
                                class="w-full border border-2 border-black rounded-md px-4 py-2"/>
+                <form:errors path="moTaDeTai" cssClass="text-red-500"/>
             </div>
             <div class="col-span-2">
                 <label for="hinh"
@@ -79,10 +81,11 @@
                     <%--@elvariable id="listGiangVien" type="java.util.List"--%>
                     <form:options items="${listGiangVien}" itemValue="maGV" itemLabel="tenGV"/>
                 </form:select>
+                <form:errors path="giangVien.maGV" cssClass="text-red-500"/>
             </div>
             <div class="col-span-4 flex justify-center items-center">
                 <input type="submit" value="Cập nhật đề tài"
-                       class="bg-blue-500 text-white font-bold px-[20px] py-2 rounded"/>
+                       class="bg-blue-500 text-white font-bold px-[20px] py-2 rounded cursor-pointer"/>
             </div>
         </div>
     </form:form>

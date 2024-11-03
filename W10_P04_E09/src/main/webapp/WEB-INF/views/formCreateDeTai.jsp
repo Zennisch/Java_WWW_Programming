@@ -41,7 +41,6 @@
                 </label>
             </div>
             <div class="col-span-2">
-
                 <form:select path="nam" id="nam"
                              class="w-full border border-2 border-black rounded-md px-4 py-2">
                     <%--@elvariable id="listNam" type="java.util.List"--%>
@@ -81,10 +80,11 @@
                     <%--@elvariable id="listGiangVien" type="java.util.List"--%>
                     <form:options items="${listGiangVien}" itemValue="maGV" itemLabel="tenGV"/>
                 </form:select>
+                <form:errors path="giangVien.maGV" cssClass="text-red-500"/>
             </div>
             <div class="col-span-4 flex justify-center items-center">
                 <input type="submit" value="Tạo đề tài"
-                       class="bg-blue-500 text-white font-bold px-[20px] py-2 rounded"/>
+                       class="bg-blue-500 text-white font-bold px-[20px] py-2 rounded cursor-pointer"/>
             </div>
         </div>
     </form:form>

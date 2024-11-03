@@ -108,7 +108,6 @@ public class ControllerDeTai {
 
     @GetMapping("/form-update")
     public String formUpdateDeTai(@RequestParam("maDeTai") Integer maDeTai, Model model) {
-        DeTai deTai = service_deTai.getDeTaiById(maDeTai);
         List<GiangVien> listGiangVien = service_deTai.getAllGiangVien();
 
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -117,7 +116,8 @@ public class ControllerDeTai {
                 .map(i -> currentYear - i + startYear)
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
-        model.addAttribute("deTai", deTai);
+        if (!model.containsAttribute("deTai"))
+            model.addAttribute("deTai", service_deTai.getDeTaiById(maDeTai));
         model.addAttribute("listGiangVien", listGiangVien);
         model.addAttribute("listNam", listNam);
 
@@ -126,35 +126,47 @@ public class ControllerDeTai {
 
     @PostMapping("/update")
     public String updateDeTai(
+            @Valid @ModelAttribute("deTai") DeTai deTai,
+            BindingResult bindingResult,
+            @RequestParam("hinh") MultipartFile hinh,
             HttpSession session,
-            @ModelAttribute("deTai") DeTai deTai,
-            @RequestParam("hinh") MultipartFile hinh
-    ) throws IOException {
-        DeTai oldDeTai = service_deTai.getDeTaiById(deTai.getMaDeTai());
-        deTai.setUrlHinh(oldDeTai.getUrlHinh());
-
-        if (hinh == null || hinh.isEmpty()) {
-            boolean statusUpdate = service_deTai.updateDeTai(deTai);
-            if (!statusUpdate)
-                System.err.println("Error: updateDeTai failed for deTai: " + deTai);
-
+            RedirectAttributes redirectAttributes
+    ) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.deTai", bindingResult);
+            redirectAttributes.addFlashAttribute("deTai", deTai);
+            return "redirect:/DeTai/form-update?maDeTai=" + deTai.getMaDeTai();
         } else {
-            ServletContext context = session.getServletContext();
-            String realPath = context.getRealPath(UPLOAD_DIR);
-            String fileName = deTai.getMaDeTai() + "_" + hinh.getOriginalFilename();
+            DeTai oldDeTai = service_deTai.getDeTaiById(deTai.getMaDeTai());
+            deTai.setUrlHinh(oldDeTai.getUrlHinh());
 
-            String filePath = realPath + fileName;
-            File file = new File(filePath);
-            hinh.transferTo(file);
+            if (hinh == null || hinh.isEmpty()) {
+                boolean statusUpdate = service_deTai.updateDeTai(deTai);
+                if (!statusUpdate)
+                    System.err.println("Error: updateDeTai failed for deTai: " + deTai);
 
-            String fileUrl = UPLOAD_URL + fileName;
-            deTai.setUrlHinh(fileUrl);
-            boolean statusUpdate = service_deTai.updateDeTai(deTai);
-            if (!statusUpdate)
-                System.err.println("Error: updateDeTai failed for deTai: " + deTai);
+            } else {
+                ServletContext context = session.getServletContext();
+                String realPath = context.getRealPath(UPLOAD_DIR);
+                String fileName = deTai.getMaDeTai() + "_" + hinh.getOriginalFilename();
 
+                String filePath = realPath + fileName;
+                File file = new File(filePath);
+                try {
+                    hinh.transferTo(file);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                String fileUrl = UPLOAD_URL + fileName;
+                deTai.setUrlHinh(fileUrl);
+                boolean statusUpdate = service_deTai.updateDeTai(deTai);
+                if (!statusUpdate)
+                    System.err.println("Error: updateDeTai failed for deTai: " + deTai);
+
+            }
+            return "redirect:/DeTai/";
         }
-        return "redirect:/DeTai/";
     }
 
     @GetMapping("/delete")
