@@ -3,6 +3,7 @@ package model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import java.util.Objects;
 
@@ -16,6 +17,8 @@ public class DeTai {
     private Integer maDeTai;
 
     @NotBlank(message = "Không được để trống tên đề tài")
+    // Allow string with Unicode characters
+    @Pattern(regexp = "^([A-Z][a-zA-Z0-9]*( |$))+$|^.{1,100}$", message = "Tên đề tài không hợp chuẩn")
     @Column(name = "TENDETAI", columnDefinition = "nvarchar(100)")
     private String tenDeTai;
 

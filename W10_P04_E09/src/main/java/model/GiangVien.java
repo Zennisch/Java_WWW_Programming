@@ -29,7 +29,7 @@ public class GiangVien {
     private String dienThoai;
 
     @NotBlank(message = "Không được để trống email")
-    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(com|org|net\\.vn)$", message = "Email không hợp lệ")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(com|org|net\\.vn)$", message = "Email không đúng chuẩn")
     @Column(name = "EMAIL", columnDefinition = "nvarchar(50)")
     private String email;
 

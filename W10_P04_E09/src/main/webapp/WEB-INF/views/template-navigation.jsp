@@ -14,7 +14,7 @@
     </a>
     <a href="${pageContext.request.contextPath}/GiangVien/"
        class="text-black font-bold text-[18px] cursor-pointer px-4 bg-gray-300 hover:bg-gray-400 rounded-lg">
-        Quản Lý Giảng Viên
+        Danh Sách Giảng Viên
     </a>
     <a href="${pageContext.request.contextPath}/DeTai/form-create"
        class="text-black font-bold text-[18px] cursor-pointer px-4 bg-gray-300 hover:bg-gray-400 rounded-lg">
