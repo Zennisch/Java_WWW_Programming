@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h1>Spring Boot Thymeleaf Example</h1>
+        <p th:text="${message}"></p>
+    </div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Dien Thoai</th>
+        </tr>
+        <tr th:each="giangVien : ${giangViens}">
+            <td th:text="${giangVien.maGV}"></td>
+            <td th:text="${giangVien.tenGV}"></td>
+            <td th:text="${giangVien.dienThoai}"></td>
+        </tr>
+    </table>
+</body>
+</html>
