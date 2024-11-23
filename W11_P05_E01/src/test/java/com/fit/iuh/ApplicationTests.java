@@ -1,4 +1,4 @@
-package com.fit.iuh.w11_p05_e01;
+package com.fit.iuh;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
