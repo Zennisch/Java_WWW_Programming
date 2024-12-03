@@ -65,4 +65,10 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/delete")
+    public String deleteEmployee(@RequestParam("id") int id) {
+        employeeService.deleteById(id);
+        return "redirect:/";
+    }
+
 }
