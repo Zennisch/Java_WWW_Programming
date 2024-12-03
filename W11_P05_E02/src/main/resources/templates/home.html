@@ -12,11 +12,11 @@
     <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-xl font-bold">Employee Management</h1>
         <div>
-            <a href="/employees"
+            <a href="/"
                class="bg-blue-700 hover:bg-blue-600 text-white py-2 px-4 rounded mx-2">
                 Danh sách
             </a>
-            <a href="/employees/add"
+            <a href="/add"
                class="bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded mx-2">
                 Thêm
             </a>
@@ -60,11 +60,11 @@
                 <td class="py-3 px-6 text-left"
                     th:text="${#dates.format(employee.modifiedDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td class="py-3 px-6 text-left">
-                    <a href="/employees/edit/{id}" th:href="@{/employees/edit/{id}(id=${employee.id})}"
+                    <a th:href="@{/edit(id=${employee.id})}"
                        class="text-blue-600 hover:text-blue-800 mx-2">
                         Sửa
                     </a>
-                    <a href="/employees/delete/{id}" th:href="@{/employees/delete/{id}(id=${employee.id})}"
+                    <a th:href="@{/delete(id=${employee.id})}"
                        class="text-red-600 hover:text-red-800 mx-2">
                         Xóa
                     </a>

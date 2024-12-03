@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -46,5 +47,22 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/edit")
+    public String showEditEmployeeForm(Model model, @RequestParam("id") int id) {
+        Employee employee = employeeService.findById(id);
+        List<Address> addresses = addressService.findAll();
+        model.addAttribute("addresses", addresses);
+        model.addAttribute("employee", employee);
+        return "edit";
+    }
+
+    @PostMapping("/edit")
+    public String editEmployee(@ModelAttribute Employee employee) {
+        int addressId = employee.getAddress().getId();
+        Address address = addressService.findById(addressId);
+        employee.setAddress(address);
+        employeeService.save(employee);
+        return "redirect:/";
+    }
 
 }
