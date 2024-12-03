@@ -1,10 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+<!-- Navbar -->
+<nav class="bg-blue-500 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold">Employee Management</h1>
+        <div>
+            <a href="/employees"
+               class="bg-blue-700 hover:bg-blue-600 text-white py-2 px-4 rounded mx-2">
+                Danh sách
+            </a>
+            <a href="/employees/add"
+               class="bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded mx-2">
+                Thêm
+            </a>
+        </div>
+    </div>
+</nav>
 
+<!-- Main Content -->
+<div class="container mx-auto p-4 mt-4">
+    <h2 class="text-2xl font-bold mb-4 text-center">Danh sách nhân viên</h2>
+    <div class="overflow-x-auto shadow-lg rounded-lg bg-white">
+        <table class="min-w-full border border-gray-200">
+            <thead>
+            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                <th class="py-3 px-6 text-left">ID</th>
+                <th class="py-3 px-6 text-left">First Name</th>
+                <th class="py-3 px-6 text-left">Last Name</th>
+                <th class="py-3 px-6 text-left">Gender</th>
+                <th class="py-3 px-6 text-left">Email</th>
+                <th class="py-3 px-6 text-left">Phone</th>
+                <th class="py-3 px-6 text-left">Date of Birth</th>
+                <th class="py-3 px-6 text-left">Created Date</th>
+                <th class="py-3 px-6 text-left">Modified Date</th>
+                <th class="py-3 px-6 text-left">Action</th>
+            </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+            <!-- Loop through the employees list -->
+            <tr th:each="employee : ${employees}"
+                class="border-b border-gray-200 hover:bg-gray-100">
+                <td class="py-3 px-6 text-left" th:text="${employee.id}"></td>
+                <td class="py-3 px-6 text-left" th:text="${employee.firstName}"></td>
+                <td class="py-3 px-6 text-left" th:text="${employee.lastName}"></td>
+                <td class="py-3 px-6 text-left" th:text="${employee.gender}"></td>
+                <td class="py-3 px-6 text-left" th:text="${employee.emailAddress}"></td>
+                <td class="py-3 px-6 text-left" th:text="${employee.phoneNumber ?: 'N/A'}"></td>
+                <td class="py-3 px-6 text-left"
+                    th:text="${#dates.format(employee.dob, 'yyyy-MM-dd')}"></td>
+                <td class="py-3 px-6 text-left"
+                    th:text="${#dates.format(employee.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td class="py-3 px-6 text-left"
+                    th:text="${#dates.format(employee.modifiedDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td class="py-3 px-6 text-left">
+                    <a href="/employees/edit/{id}" th:href="@{/employees/edit/{id}(id=${employee.id})}"
+                       class="text-blue-600 hover:text-blue-800 mx-2">
+                        Sửa
+                    </a>
+                    <a href="/employees/delete/{id}" th:href="@{/employees/delete/{id}(id=${employee.id})}"
+                       class="text-red-600 hover:text-red-800 mx-2">
+                        Xóa
+                    </a>
+                </td>
+            </tr>
+            <!-- If list is empty -->
+            <tr th:if="${employees.empty}">
+                <td colspan="10" class="py-3 px-6 text-center text-gray-500">
+                    Không có nhân viên nào
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

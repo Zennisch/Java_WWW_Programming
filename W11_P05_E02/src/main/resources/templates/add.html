@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+<div class="container max-w-lg p-6 bg-white shadow-md rounded-lg">
+    <h1 class="text-2xl font-bold mb-4 text-center">Add Employee</h1>
+    <form action="/add" method="post" class="space-y-4">
+        <div>
+            <label for="firstName" class="block text-gray-700">First Name</label>
+            <input type="text" id="firstName" name="firstName"
+                   class="w-full border border-gray-300 rounded-lg p-2"
+                   placeholder="Enter first name" required>
+        </div>
+        <div>
+            <label for="lastName" class="block text-gray-700">Last Name</label>
+            <input type="text" id="lastName" name="lastName"
+                   class="w-full border border-gray-300 rounded-lg p-2"
+                   placeholder="Enter last name" required>
+        </div>
+        <div>
+            <label for="gender" class="block text-gray-700">Gender</label>
+            <select id="gender" name="gender"
+                    class="w-full border border-gray-300 rounded-lg p-2">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div>
+            <label for="email" class="block text-gray-700">Email</label>
+            <input type="email" id="email" name="emailAddress"
+                   class="w-full border border-gray-300 rounded-lg p-2"
+                   placeholder="Enter email" required>
+        </div>
+        <div>
+            <label for="phoneNumber" class="block text-gray-700">Phone Number</label>
+            <input type="text" id="phoneNumber" name="phoneNumber"
+                   class="w-full border border-gray-300 rounded-lg p-2"
+                   placeholder="(123)456-7890">
+        </div>
+        <div>
+            <label for="dob" class="block text-gray-700">Date of Birth</label>
+            <input type="date" id="dob" name="dob"
+                   class="w-full border border-gray-300 rounded-lg p-2" required>
+        </div>
+        <div>
+            <label for="address" class="block text-gray-700">Address</label>
+            <select id="address" name="address.id"
+                    class="w-full border border-gray-300 rounded-lg p-2" required>
+                <option value="">Select Address</option>
+                <option th:each="address : ${addresses}"
+                        th:value="${address.id}"
+                        th:text="${address.address}"></option>
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
